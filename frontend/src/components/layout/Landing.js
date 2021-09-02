@@ -1,12 +1,12 @@
-import React from "react";
-import svgart from "../../img/undraw.svg";
+import React from 'react';
+import svgart from '../../img/undraw.svg';
 
 const Landing = () => {
   return (
-    <div className="landingSection">
-      <div className="container">
-        <div className="landing-main">
-          <div className="left">
+    <div className='landingSection bg-dark'>
+      <div className='container'>
+        <div className='landing-main'>
+          <div className='left'>
             <h1>Nameless</h1>
             <h6>Anonymous.Post.Interact</h6>
             <p>
@@ -15,10 +15,10 @@ const Landing = () => {
               repellendus minus quasi nemo?
             </p>
 
-            <button className="btn btn-primary">Register</button>
+            <button className='btn btn-primary'>Register</button>
           </div>
-          <div className="right">
-            <img src={svgart} alt="" />
+          <div className='right'>
+            <img src={svgart} alt='' />
           </div>
         </div>
       </div>
