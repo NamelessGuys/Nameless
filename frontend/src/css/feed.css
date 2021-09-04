@@ -1,0 +1,79 @@
+/***************************/
+/********** Post ***********/
+/***************************/
+.post {
+  margin: 0.5rem auto;
+  padding-top: 1rem;
+  color: var(--white-color);
+  width: 50%;
+}
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-info {
+  position: relative;
+}
+
+.post-actions {
+  background-color: var(--graylight-color);
+  position: absolute;
+  top: 17px;
+  left: -140px;
+  width: 170px;
+  padding: 1rem;
+  border-radius: 15px;
+  visibility: hidden;
+}
+
+.post-actions.show {
+  visibility: visible;
+}
+
+.post-action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.post-action:first-child {
+  margin-bottom: 0.5rem;
+}
+
+.post-action i {
+  margin-right: 1rem;
+}
+
+.post-text {
+  margin-top: 1rem;
+}
+
+.post-img {
+  height: 450px !important;
+  background: url('../img/service-2.PNG') no-repeat center center/cover;
+}
+
+.post-footer {
+  display: flex;
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.7rem;
+  z-index: 1000;
+}
+
+.post-vote {
+  display: flex;
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+}
