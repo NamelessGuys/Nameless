@@ -24,6 +24,7 @@ body {
   line-height: 1.6;
   background-color: var(--dark-color);
   color: var(--white-color);
+  overflow-x: hidden;
 }
 
 a {
@@ -393,7 +394,7 @@ button {
   margin: 0;
   padding: 0;
   font-weight: bold;
-  color: #222;
+  color: var(--white-color);
   font-size: 36px;
   margin-bottom: 1rem;
 }
@@ -482,7 +483,7 @@ button {
 #login .form-submit {
   display: inline-block;
   background: var(--primary-color);
-  color: #333;
+  color: var(--white-color);
   font-weight: bold;
   border-bottom: none;
   width: auto;
@@ -505,11 +506,6 @@ button {
 
 #signin {
   margin-top: 16px;
-}
-
-.term-service {
-  font-size: 13px;
-  color: #222;
 }
 
 .signin-form {
@@ -538,6 +534,7 @@ button {
   border-bottom: 1px solid #999;
   padding: 6px 30px;
   box-sizing: border-box;
+  background-color: transparent;
 }
 #login input::-webkit-input-placeholder {
   color: #999;
@@ -555,16 +552,16 @@ button {
   border-bottom: 1px solid #222;
 }
 #login input:focus::-webkit-input-placeholder {
-  color: #222;
+  color: var(--white-color);
 }
 #login input:focus::-moz-placeholder {
-  color: #222;
+  color: var(--white-color);
 }
 #login input:focus:-ms-input-placeholder {
-  color: #222;
+  color: var(--white-color);
 }
 #login input:focus:-moz-placeholder {
-  color: #222;
+  color: var(--white-color);
 }
 
 #login .agree-term {
@@ -581,7 +578,7 @@ button {
   -webkit-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  color: #222;
+  color: var(--light-color);
 }
 
 .signin-content {
@@ -646,9 +643,9 @@ button {
 }
 
 .signin-image {
-  margin-left: 110px;
+  margin-left: 80px;
   margin-right: 20px;
-  margin-top: 10px;
+  margin-top: 60px;
 }
 /********************************/
 /****************landing ********/
@@ -724,13 +721,12 @@ button {
   background: var(--graydark-color);
   border-radius: 0.25rem;
   z-index: 100;
-  /* 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s linear; */
+  opacity: 0.95;
+  transition: all 0.3s ease-in;
 }
 
 .register-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px 3px var(--graydark-color);
 }
 
 .register-card .form-item {
@@ -738,17 +734,23 @@ button {
   height: 32px;
   border: var(--graydark-color);
 }
-.register-card .form-item input {
+.register-card .form-item input,
+.register-card .form-item select {
   padding: 4px 2px;
   font-size: 0.8rem;
   border-radius: 4px;
   width: 60%;
-  color: var(--graylight-color);
+  color: var(--graylight-color) !important;
+
+  border: none;
 }
-.register-card .form-item input :focus {
-  outline: 2px solid
-    linear-gradient(var(--primary-color), rgba(223, 31, 60, 0.7));
+.register-card .form-item input:focus,
+.register-card .form-item select:focus {
+  outline: none;
+
+  box-shadow: 0 0 4px 2.5px var(--primary-color);
 }
+
 .center {
   /* width: 50%; */
   display: flex;

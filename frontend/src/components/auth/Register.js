@@ -14,7 +14,16 @@ const Register = () => {
               <input type='text' placeholder='Email' />
             </div>
             <div className='form-item'>
-              <input type='text' placeholder='College' />
+              <select name='college'>
+                <option>Select College</option>
+                <option value='dtu'>DTU</option>
+                <option value='nsut'>NSUT</option>
+                <option value='iitd'>IIT D</option>
+                <option value='iiitd'>IIIT D</option>
+                <option value='igdtuw'>IGDTUW</option>
+                <option value='ipu'>IPU</option>
+                <option value='du'>DU</option>
+              </select>
             </div>
             <div className='form-item'>
               <input type='text' placeholder='Password' />

@@ -59,7 +59,7 @@ const Login = () => {
                   name='signin'
                   id='signin'
                   className='form-submit'
-                  value='Log In'
+                  value='Sign In'
                 />
               </div>
             </form>
