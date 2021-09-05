@@ -1,0 +1,34 @@
+{
+  "name": "nameless",
+  "version": "1.0.0",
+  "description": "Nameless Social Media Platform for anonymous posting and texting increasing inter-college interaction",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NamelessGuys/Nameless.git"
+  },
+  "author": "VMCians",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NamelessGuys/Nameless/issues"
+  },
+  "homepage": "https://github.com/NamelessGuys/Nameless#readme"
+}

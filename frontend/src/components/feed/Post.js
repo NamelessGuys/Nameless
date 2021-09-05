@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GiThumbDown, GiThumbUp } from 'react-icons/gi';
-import { FaComment, FaFlag, FaCopy, FaBars, FaTimes } from 'react-icons/fa';
+import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
 
 const Post = () => {
   const [isOptionVisible, setIsOptionVisible] = useState(false);
@@ -10,11 +10,11 @@ const Post = () => {
       <div className="post-head">
         <h3>Lorem Ipsum</h3>
         <div className="post-info">
-          <div
-            className="post-dots"
-            onClick={() => setIsOptionVisible(!isOptionVisible)}
-          >
-            {isOptionVisible ? <FaTimes /> : <FaBars />}
+          <div onClick={() => setIsOptionVisible(!isOptionVisible)}>
+            <input type="checkbox" class="toggler" />
+            <div class="hamburger">
+              <div></div>
+            </div>
           </div>
           <div className={`post-actions ${isOptionVisible ? 'show' : ''}`}>
             <div className="post-action">
@@ -36,6 +36,10 @@ const Post = () => {
         <div className="post-text">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
           architecto!
+        </div>
+        <div className="post-tags">
+          <div className="tags">#chill #meme #fun</div>
+          <div className="college-name">DTU</div>
         </div>
         <div className="post-img"></div>
       </div>
