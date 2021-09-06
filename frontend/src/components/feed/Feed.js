@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Post from './Post';
 import '../../css/feed.css';
 
 const Feed = () => {
   return (
-    <Fragment>
+    <div id="feed">
       <Post />
-    </Fragment>
+    </div>
   );
 };
 

@@ -1,3 +1,7 @@
+#feed {
+  margin-top: -2rem;
+}
+
 /***************************/
 /********** Post ***********/
 /***************************/
@@ -166,4 +170,13 @@
   width: 15%;
   justify-content: space-between;
   align-items: center;
+}
+
+.post-footer i {
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+
+.post-footer i:hover {
+  transform: scale(1.1);
 }
