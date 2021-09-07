@@ -1,15 +1,18 @@
 #feed {
   margin-top: -2rem;
+  /* display: flex;
+  align-items: flex-start; */
 }
 
 /***************************/
 /********** Post ***********/
 /***************************/
 .post {
-  margin: 0.5rem auto;
+  margin: 0.5rem 0;
   padding-top: 1rem;
   color: var(--white-color);
-  width: 50%;
+  width: 60%;
+  margin-left: 3vw;
 }
 
 .post-head {
@@ -60,7 +63,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -150,7 +153,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url('../img/service-2.PNG') no-repeat center center/cover;
+  background: url("../img/service-2.PNG") no-repeat center center/cover;
 }
 
 .post-footer {
@@ -179,4 +182,23 @@
 
 .post-footer i:hover {
   transform: scale(1.1);
+}
+
+/***************************/
+/********** Filters ***********/
+/***************************/
+
+#filters {
+  width: 30%;
+  border-radius: 12px;
+  padding: 1rem;
+  position: fixed;
+  top: 20vh;
+  right: 5vw;
+}
+.filter {
+  margin-top: 1.5rem;
+}
+.filter .btn {
+  margin: 0.2rem;
 }
