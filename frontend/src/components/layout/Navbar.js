@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../img/Nameless-Title-Only-Black.png';
 
 const guestLinks = (
   <ul>
     <li>
-      <a href="#">Register</a>
+      <Link to="/register">Register</Link>
     </li>
     <li>
-      <button className="btn btn-primary">Login</button>
+      <Link to="/login" className="btn btn-primary">
+        Login
+      </Link>
     </li>
   </ul>
 );
@@ -16,10 +19,10 @@ const authLinks = (
   <Fragment>
     <ul>
       <li>
-        <a href="#">Feed</a>
+        <Link to="/feed">Feed</Link>
       </li>
       <li>
-        <a href="#">Chatrooms</a>
+        <Link to="/chatrooms">Chatrooms</Link>
       </li>
       <li>
         <div className="nav-profile">
@@ -39,7 +42,9 @@ const Navbar = () => {
   return (
     <nav className="navbar bg-graydark">
       <div className="navbar-brand">
-        <img src={Logo} alt="Nameless" />
+        <Link to="/">
+          <img src={Logo} alt="Nameless" />
+        </Link>
       </div>
       {/* {guestLinks} */}
       {authLinks}
