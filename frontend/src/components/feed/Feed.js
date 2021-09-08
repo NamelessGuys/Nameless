@@ -1,12 +1,12 @@
-import React from "react";
-import Post from "./Post";
-import "../../css/feed.css";
-import Filters from "./Filters";
+import React, { useState } from 'react';
+import Posts from './Posts';
+import Filters from './Filters';
+import '../../css/feed.css';
 
 const Feed = () => {
   return (
     <div id="feed">
-      <Post />
+      <Posts />
       <Filters />
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { GiThumbDown, GiThumbUp } from 'react-icons/gi';
 import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
+import Post from '../post/Post';
+import { Link } from 'react-router-dom';
 
-const Post = () => {
+const FeedPost = () => {
   const [isOptionVisible, setIsOptionVisible] = useState(false);
 
   return (
-    <div className="post bg-graydark">
+    <div className="feed-post bg-graydark">
       <div className="post-head">
         <h3>Lorem Ipsum</h3>
         <div className="post-info">
@@ -32,32 +34,40 @@ const Post = () => {
           </div>
         </div>
       </div>
-      <div className="post-body">
-        <div className="post-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
-          architecto!
+      <Link to="/post">
+        <div className="post-body">
+          <div className="post-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
+            architecto!
+          </div>
+          <div className="post-tags">
+            <div className="tags">#chill #meme #fun</div>
+            <div className="college-name">DTU</div>
+          </div>
+          <div className="post-img"></div>
         </div>
-        <div className="post-tags">
-          <div className="tags">#chill #meme #fun</div>
-          <div className="college-name">DTU</div>
-        </div>
-        <div className="post-img"></div>
-      </div>
+      </Link>
       <div className="post-footer">
         <div className="post-vote">
           <i>
             <GiThumbUp />
           </i>
+          <p className="vote-count">69</p>
           <i>
             <GiThumbDown />
           </i>
         </div>
-        <i>
-          <FaComment />
-        </i>
+        <div className="post-comment">
+          <p className="comment-count">69</p>
+          <Link to="/post">
+            <i>
+              <FaComment />
+            </i>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Post;
+export default FeedPost;
