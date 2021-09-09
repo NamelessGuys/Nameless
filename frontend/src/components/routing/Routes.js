@@ -4,6 +4,7 @@ import Register from '../auth/Register';
 import Login from '../auth/Login';
 import Feed from '../feed/Feed';
 import Post from '../post/Post';
+import Settings from '../layout/Settings'
 import NotFound from '../layout/NotFound';
 
 const Routes = () => {
@@ -14,6 +15,7 @@ const Routes = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/post" component={Post} />
+        <Route exact path="/settings" component={Settings} />
         <Route component={NotFound} />
       </Switch>
     </div>
