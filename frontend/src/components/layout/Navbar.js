@@ -3,6 +3,7 @@ import Logo from '../../img/Nameless-Title-Only-Black.png';
 import { FaUser, FaCog } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import {MdLiveHelp} from 'react-icons/md'
 
 const guestLinks = (
   <ul>
@@ -51,6 +52,12 @@ const authLinks = (
                 <FaCog />
               </i>
               Settings
+            </a>
+            <a href='#'>
+              <i>
+                <MdLiveHelp />
+              </i>
+              Help
             </a>
             <a href='#'>
               <i>

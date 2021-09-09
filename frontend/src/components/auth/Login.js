@@ -2,6 +2,8 @@ import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import loginImage from '../../img/login_Image.svg';
+import '../../css/auth.css'
+
 const Login = () => {
   return (
     <div className='bg-dark' id='login'>
