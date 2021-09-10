@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import SettingsImg from "../../img/settings.svg";
 
 const Settings = () => {
+  const [passwordToggle, setPasswordToggle] = useState(false);
   return (
     <div id="settings">
       <div className="settings-content">
@@ -27,8 +28,38 @@ const Settings = () => {
             <span class="slider round"></span>
           </label>
         </div>
-        <div className="setting settings-btn">
-          <p>Change Password</p>
+        <div className={`setting settings-btn ${passwordToggle && "show"}`}>
+          <button
+            className="change-password-btn"
+            onClick={() => setPasswordToggle(true)}
+          >
+            Change Password
+          </button>
+          {passwordToggle && (
+            <div className="change-password">
+              <input type="password" placeholder="Old Password" />
+              <input type="password" placeholder="New Password" />
+              <input type="password" placeholder="Confirm New Password" />
+              <div className="password-btn">
+                <button
+                  onClick={() => {
+                    setPasswordToggle(false);
+                  }}
+                  className="btn btn-danger"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    setPasswordToggle(false);
+                  }}
+                  className="btn btn-success"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="settings-img">

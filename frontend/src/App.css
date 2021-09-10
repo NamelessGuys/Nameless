@@ -507,6 +507,9 @@ button {
   flex-direction: row;
   margin: 1rem 0rem;
 }
+.setting:last-of-type {
+  display: block;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -577,7 +580,7 @@ input:checked + .slider:before {
   height: 100%;
   width: 100%;
 }
-.settings-btn p {
+.settings-btn .change-password-btn {
   width: 31%;
 
   font-weight: 600;
@@ -588,8 +591,37 @@ input:checked + .slider:before {
   background-color: var(--primary-color);
   color: var(--white-color);
 }
-.settings-btn p:hover {
+.settings-btn.show .change-password-btn {
   background-color: var(--dark-color);
   color: var(--primary-color);
   cursor: pointer;
+}
+.change-password {
+  width: 60%;
+}
+
+.change-password input {
+  padding: 5px 8px;
+  font-size: 1rem;
+  border-radius: 7px;
+  margin-top: 1.4rem;
+  margin-left: 0.4rem;
+  width: 100%;
+  color: var(--graylight-color) !important;
+  border: none;
+}
+.change-password input:focus {
+  outline: none;
+  box-shadow: 0 0 4px 2.5px var(--primary-color);
+}
+.password-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.password-btn button {
+  margin-top: 2rem;
+}
+.password-btn .btn:last-child {
+  margin-right: 0rem !important;
 }
