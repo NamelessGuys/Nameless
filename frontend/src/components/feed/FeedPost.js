@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { GiThumbDown, GiThumbUp } from 'react-icons/gi';
 import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
-import Post from '../post/Post';
 import { Link } from 'react-router-dom';
 
 const FeedPost = () => {

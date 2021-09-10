@@ -19,7 +19,7 @@ body {
   /* font-family: "Raleway", sans-serif; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--dark-color);
@@ -252,10 +252,10 @@ ul {
   color: #888;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
 .form select,
 .form textarea {
   display: block;
@@ -265,7 +265,7 @@ ul {
   border: 1px solid #ccc;
 }
 
-.form input[type="submit"],
+.form input[type='submit'],
 button {
   font: inherit;
 }
@@ -486,146 +486,3 @@ button {
 .not-found img {
   height: 100%;
 }
-
-/****************************/
-/*******Settings*******/
-/****************************/
-
-#settings {
-  display: flex;
-  justify-content: space-between;
-}
-#settings h2 {
-  margin-bottom: 4rem;
-}
-.settings-content {
-  width: 50%;
-}
-.setting {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 1rem 0rem;
-}
-.setting:last-of-type {
-  display: block;
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: var(--primary-color);
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--primary-color);
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-.settings-img {
-  width: 25vw;
-  height: 60vh;
-  align-self: center;
-}
-.settings-img img {
-  height: 100%;
-  width: 100%;
-}
-.settings-btn .change-password-btn {
-  width: 31%;
-
-  font-weight: 600;
-  padding: 0.5rem;
-
-  border: 1px solid var(--primary-color);
-  transition: 0.3s;
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-.settings-btn.show .change-password-btn {
-  background-color: var(--dark-color);
-  color: var(--primary-color);
-  cursor: pointer;
-}
-.change-password {
-  width: 60%;
-}
-
-.change-password input {
-  padding: 5px 8px;
-  font-size: 1rem;
-  border-radius: 7px;
-  margin-top: 1.4rem;
-  margin-left: 0.4rem;
-  width: 100%;
-  color: var(--graylight-color) !important;
-  border: none;
-}
-.change-password input:focus {
-  outline: none;
-  box-shadow: 0 0 4px 2.5px var(--primary-color);
-}
-.password-btn {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.password-btn button {
-  margin-top: 2rem;
-}
-.password-btn .btn:last-child {
-  margin-right: 0rem !important;
-}
-
-/****************************/
-/*******Help*****************/
-/****************************/

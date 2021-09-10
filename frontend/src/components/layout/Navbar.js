@@ -2,16 +2,16 @@ import React, { Fragment } from 'react';
 import Logo from '../../img/Nameless-Title-Only-Black.png';
 import { FaUser, FaCog } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
+import { HiMailOpen } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import {MdLiveHelp} from 'react-icons/md'
 
 const guestLinks = (
   <ul>
     <li>
-      <Link to='/register'>Register</Link>
+      <Link to="/register">Register</Link>
     </li>
     <li>
-      <Link to='/login' className='btn btn-primary'>
+      <Link to="/login" className="btn btn-primary">
         Login
       </Link>
     </li>
@@ -22,49 +22,49 @@ const authLinks = (
   <Fragment>
     <ul>
       <li>
-        <Link to='/feed'>Feed</Link>
+        <Link to="/feed">Feed</Link>
       </li>
       <li>
-        <Link to='/chatrooms'>Chatrooms</Link>
+        <Link to="/chatrooms">Chatrooms</Link>
       </li>
 
       <li>
-        <div class='dropdown'>
-          <button class='dropbtn'>
-            <div className='nav-profile'>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <div className="nav-profile">
               <img
-                class='nav-profile-img'
-                src='https://randomuser.me/api/portraits/men/1.jpg'
-                alt='Profile Pic'
+                class="nav-profile-img"
+                src="https://randomuser.me/api/portraits/men/1.jpg"
+                alt="Profile Pic"
               />
-              <h3 className='nav-username'>Lorem Ipsum</h3>
+              <h3 className="nav-username">Lorem Ipsum</h3>
             </div>
           </button>
-          <div className='dropdown-content'>
-            <a href='#'>
+          <div className="dropdown-content">
+            <a href="#">
               <i>
                 <FaUser />
               </i>
               Profile
             </a>
-            <a href='#'>
+            <Link to="/settings">
               <i>
                 <FaCog />
               </i>
               Settings
-            </a>
-            <a href='#'>
+            </Link>
+            <Link to="/contact">
               <i>
-                <MdLiveHelp />
+                <HiMailOpen />
               </i>
-              Help
-            </a>
-            <a href='#'>
+              Contact Us
+            </Link>
+            <Link to="/">
               <i>
                 <FiLogOut />
               </i>
               Sign Out
-            </a>
+            </Link>
           </div>
         </div>
       </li>
@@ -74,10 +74,10 @@ const authLinks = (
 
 const Navbar = () => {
   return (
-    <nav className='navbar bg-graydark'>
-      <div className='navbar-brand'>
-        <Link to='/'>
-          <img src={Logo} alt='Nameless' />
+    <nav className="navbar bg-graydark">
+      <div className="navbar-brand">
+        <Link to="/">
+          <img src={Logo} alt="Nameless" />
         </Link>
       </div>
       {/* {guestLinks} */}

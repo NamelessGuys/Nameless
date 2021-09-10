@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Posts from './Posts';
 import Filters from './Filters';
 import '../../css/feed.css';

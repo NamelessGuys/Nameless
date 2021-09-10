@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import SettingsImg from "../../img/settings.svg";
+import React, { useState } from 'react';
+import SettingsImg from '../../img/settings.svg';
+import '../../css/user.css';
 
 const Settings = () => {
   const [passwordToggle, setPasswordToggle] = useState(false);
@@ -28,7 +29,7 @@ const Settings = () => {
             <span class="slider round"></span>
           </label>
         </div>
-        <div className={`setting settings-btn ${passwordToggle && "show"}`}>
+        <div className={`setting settings-btn ${passwordToggle && 'show'}`}>
           <button
             className="change-password-btn"
             onClick={() => setPasswordToggle(true)}
@@ -63,7 +64,7 @@ const Settings = () => {
         </div>
       </div>
       <div className="settings-img">
-        <img src={SettingsImg} />
+        <img src={SettingsImg} alt="settings" />
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
-import React from "react";
-import { Switch, Route } from "react-router";
-import Register from "../auth/Register";
-import Login from "../auth/Login";
-import Feed from "../feed/Feed";
-import Post from "../post/Post";
-import Settings from "../layout/Settings";
-import NotFound from "../layout/NotFound";
-import Help from "../layout/Help";
+import React from 'react';
+import { Switch, Route } from 'react-router';
+import Register from '../auth/Register';
+import Login from '../auth/Login';
+import Feed from '../feed/Feed';
+import Post from '../post/Post';
+import Settings from '../user/Settings';
+import Contact from '../user/Contact';
+import NotFound from '../layout/NotFound';
 
 const Routes = () => {
   return (
@@ -17,7 +17,7 @@ const Routes = () => {
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/post" component={Post} />
         <Route exact path="/settings" component={Settings} />
-        <Route exact path="/help" component={Help} />
+        <Route exact path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
     </div>
