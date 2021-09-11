@@ -15,7 +15,7 @@ const Contact = () => {
             lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
             lorem lorem lorem lorem lorem lorem lorem lorem lorem
           </p>
-          <div class='card-social-icons'>
+          <div className='card-social-icons'>
             <a href='mailto:bansal.ayush2002@gmail.com'>
               <FiMail />
             </a>
@@ -28,14 +28,14 @@ const Contact = () => {
           </div>
         </div>
         <div className='row-card'>
-          <div class='card'>
-            <div class='card-background'>
+          <div className='card'>
+            <div className='card-background'>
               <img
-                src='https://lh3.googleusercontent.com/-paS9Qm_3L9E/XGK6C0wkWbI/AAAAAAAAAyg/sqwN0ovgb4oD-8cmkNYhLY67SvWZSAnbQCLcBGAs/h120/askjd.jpg'
-                class='card-image'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png'
+                className='card-image'
               />
             </div>
-            <div class='card-info'>
+            <div className='card-info'>
               <h1>Ayush Bansal</h1>
               <p>frontend developer</p>
               <br />
@@ -44,7 +44,7 @@ const Contact = () => {
                 songwriter, actress.
               </p>
             </div>
-            <div class='card-social-icons'>
+            <div className='card-social-icons'>
               <a href='mailto:bansal.ayush2002@gmail.com'>
                 <FiMail />
               </a>
@@ -56,14 +56,14 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div class='card'>
-            <div class='card-background'>
+          <div className='card'>
+            <div className='card-background'>
               <img
-                src='https://lh3.googleusercontent.com/-paS9Qm_3L9E/XGK6C0wkWbI/AAAAAAAAAyg/sqwN0ovgb4oD-8cmkNYhLY67SvWZSAnbQCLcBGAs/h120/askjd.jpg'
-                class='card-image'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png'
+                className='card-image'
               />
             </div>
-            <div class='card-info'>
+            <div className='card-info'>
               <h1>Gaurav Bansal</h1>
               <p>backend developer</p>
               <br />
@@ -72,7 +72,7 @@ const Contact = () => {
                 songwriter, actress.
               </p>
             </div>
-            <div class='card-social-icons'>
+            <div className='card-social-icons'>
               <a href='mailto:bansal.ayush2002@gmail.com'>
                 <FiMail />
               </a>
@@ -84,14 +84,14 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div class='card'>
-            <div class='card-background'>
+          <div className='card'>
+            <div className='card-background'>
               <img
-                src='https://lh3.googleusercontent.com/-paS9Qm_3L9E/XGK6C0wkWbI/AAAAAAAAAyg/sqwN0ovgb4oD-8cmkNYhLY67SvWZSAnbQCLcBGAs/h120/askjd.jpg'
-                class='card-image'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png'
+                className='card-image'
               />
             </div>
-            <div class='card-info'>
+            <div className='card-info'>
               <h1>Hitesh Marwaha</h1>
               <p>backend developer</p>
               <br />
@@ -100,7 +100,7 @@ const Contact = () => {
                 songwriter, actress.
               </p>
             </div>
-            <div class='card-social-icons'>
+            <div className='card-social-icons'>
               <a href='mailto:bansal.ayush2002@gmail.com'>
                 <FiMail />
               </a>
@@ -114,14 +114,14 @@ const Contact = () => {
           </div>
         </div>
         <div className='row-card-2'>
-          <div class='card'>
-            <div class='card-background'>
+          <div className='card'>
+            <div className='card-background'>
               <img
-                src='https://lh3.googleusercontent.com/-paS9Qm_3L9E/XGK6C0wkWbI/AAAAAAAAAyg/sqwN0ovgb4oD-8cmkNYhLY67SvWZSAnbQCLcBGAs/h120/askjd.jpg'
-                class='card-image'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png'
+                className='card-image'
               />
             </div>
-            <div class='card-info'>
+            <div className='card-info'>
               <h1>Pushp Jain</h1>
               <p>frontend developer</p>
               <br />
@@ -130,7 +130,7 @@ const Contact = () => {
                 songwriter, actress.
               </p>
             </div>
-            <div class='card-social-icons'>
+            <div className='card-social-icons'>
               <a href='mailto:bansal.ayush2002@gmail.com'>
                 <FiMail />
               </a>
@@ -142,14 +142,14 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div class='card'>
-            <div class='card-background'>
+          <div className='card'>
+            <div className='card-background'>
               <img
-                src='https://lh3.googleusercontent.com/-paS9Qm_3L9E/XGK6C0wkWbI/AAAAAAAAAyg/sqwN0ovgb4oD-8cmkNYhLY67SvWZSAnbQCLcBGAs/h120/askjd.jpg'
-                class='card-image'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png'
+                className='card-image'
               />
             </div>
-            <div class='card-info'>
+            <div className='card-info'>
               <h1>Krish Chopra</h1>
               <p>ML developer</p>
               <br />
@@ -158,7 +158,7 @@ const Contact = () => {
                 songwriter, actress.
               </p>
             </div>
-            <div class='card-social-icons'>
+            <div className='card-social-icons'>
               <a href='mailto:bansal.ayush2002@gmail.com'>
                 <FiMail />
               </a>
