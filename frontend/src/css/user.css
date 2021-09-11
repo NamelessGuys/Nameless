@@ -155,15 +155,77 @@ input:checked + .slider:before {
 }
 
 /****************************/
-/**********Conatct***********/
+/**********Contact***********/
 /****************************/
 .contact-header {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  align-items: baseline;
+  width: 100%;
+  height: 200px;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  color: var(--primary-color);
 }
-
+.contact-para {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
 .contact-header h2 {
   font-size: 2rem;
+  padding-left: 10px;
+}
+
+.row-card {
+  display: flex;
+  padding: 10px;
+}
+.row-card-2 {
+  display: flex;
+  padding: 10px;
+}
+
+.card {
+  background-color: var(--white-color);
+  width: 340px;
+  height: 410px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.card-background {
+  background: var(--primary-color);
+  height: 100px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-image {
+  border-radius: 100%;
+  width: 150px;
+  height: auto;
+  position: relative;
+  top: 20px;
+}
+
+.card-info {
+  /* isme name,role,description daala hua hai */
+  margin-top: 60px;
+  padding: 10px;
+}
+
+h1 {
+  color: var(--dark-color);
+}
+
+p {
+  color: var(--graydark-color);
+}
+.card-social-icons a {
+  padding: 10px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.card-social-icons a:hover {
+  color: black;
 }
