@@ -298,16 +298,22 @@ button {
   width: 150px;
   height: 30px;
 }
+
+.navbar-brand:hover {
+  background-color: transparent !important;
+}
+
 .navbar img {
   height: 60px;
   width: 200px;
 }
+
 .navbar ul {
   display: flex;
   float: right;
 }
 
-.navbar a {
+.navbar ul a {
   font-weight: 550;
   padding: 0.5rem 0.8rem;
   margin: 0 1rem;
@@ -316,7 +322,7 @@ button {
   border-radius: 10px;
 }
 
-.navbar a:hover {
+.navbar ul a:hover {
   color: var(--graydark-color);
   background-color: var(--white-color);
 }

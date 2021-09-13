@@ -1,4 +1,82 @@
 /***************************/
+/******* Add Post Btn*******/
+/***************************/
+@keyframes slider {
+  from {
+    width: 0;
+    font-size: 0;
+  }
+
+  to {
+    width: 200px;
+    font-size: 1.2rem;
+  }
+}
+
+#add-post-btn {
+  display: flex;
+  margin-bottom: 1rem;
+  margin-left: 3vw;
+}
+
+.add-btn {
+  font-size: 2.5rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  z-index: 100;
+  text-align: center;
+  cursor: pointer;
+}
+
+.add-desc {
+  width: 0;
+  height: 60px;
+  text-align: right;
+  padding-top: 15px;
+  font-size: 0;
+  background-color: var(--primary-color);
+  transform: translateX(-30px);
+}
+
+.arrow-right {
+  transform: translateX(-30px);
+  height: 0;
+  width: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid var(--primary-color);
+}
+
+.add-btn:hover + .add-desc {
+  animation: slider 0.5s forwards;
+}
+
+.add-btn:hover {
+  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+/***************************/
+/***** Add Post Modal*******/
+/***************************/
+#add-post {
+  background-color: var(--graylight-color);
+  height: 80vh;
+  width: 65vw;
+  position: absolute;
+  left: 17.5vw;
+  top: 10vh;
+  color: var(--white-color);
+  z-index: 10000000000;
+}
+
+#add-post .line {
+  background-color: var(--light-color);
+}
+
+/***************************/
 /******** FeedPost *********/
 /***************************/
 .feed-post,
@@ -206,7 +284,7 @@
   border-radius: 12px;
   padding: 1rem;
   position: fixed;
-  top: 30vh;
+  top: 21vh;
   right: 5vw;
 }
 .filter {
