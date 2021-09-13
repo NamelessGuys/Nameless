@@ -1,9 +1,3 @@
-#feed {
-  margin-top: -2rem;
-  /* display: flex;
-  align-items: flex-start; */
-}
-
 /***************************/
 /******** FeedPost *********/
 /***************************/
@@ -212,7 +206,7 @@
   border-radius: 12px;
   padding: 1rem;
   position: fixed;
-  top: 20vh;
+  top: 30vh;
   right: 5vw;
 }
 .filter {
@@ -234,4 +228,13 @@
 .post {
   margin-left: 0;
   width: 50%;
+}
+/***************************/
+/********* upload button ***/
+/***************************/
+
+.upload-btn {
+  color: var(--primary-color);
+  background-color: transparent;
+  font-size: 3rem;
 }

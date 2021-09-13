@@ -213,11 +213,11 @@ input:checked + .slider:before {
   padding: 10px;
 }
 
-h1 {
+#contact h1 {
   color: var(--dark-color);
 }
 
-p {
+#contact p {
   color: var(--graydark-color);
 }
 .card-social-icons a {
