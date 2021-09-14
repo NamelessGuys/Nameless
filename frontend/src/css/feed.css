@@ -323,6 +323,7 @@
 
 #add-post {
   margin-top: 1.5rem;
+  padding: 0.5rem;
 }
 
 .modal-body {
@@ -331,7 +332,16 @@
 }
 .modal-header {
   display: flex;
+  margin-top: 1rem;
   justify-content: space-between;
+  padding: 0rem 2rem;
+}
+.modal-header .btn.btn-danger {
+  text-align: center;
+  padding: 0rem 1rem;
+  max-height: 3rem;
+  min-width: 3rem;
+  font-size: 2rem;
 }
 
 .modal-input {
@@ -344,9 +354,16 @@
   width: 100%;
 }
 .modal-input.tag {
-  width: 65%;
+  width: 40%;
 }
 
 .modal-body-footer {
   display: flex;
+  width: 100%;
+}
+.modal-upload-image {
+  visibility: hidden;
+}
+.modal-footer {
+  padding: 0rem 2rem;
 }

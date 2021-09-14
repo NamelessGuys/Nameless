@@ -23,16 +23,21 @@ const AddPostModal = () => {
               placeholder="Text"
             ></textarea>
           </label>
-          <div className="modal-body-footer">
-            <label>
-              <input
-                className="modal-input tag"
-                type="text"
-                placeholder="#tag1, #tag2,.... (max 5)"
-              ></input>
-            </label>
-            <button className="btn btn-primary">Upload Image</button>
-          </div>
+          <label>
+            <input
+              className="modal-input tag"
+              type="text"
+              placeholder="#tag1, #tag2,.... (max 5)"
+            ></input>
+          </label>
+          <label>
+            <div className="btn">
+              Upload Image
+              <div className="modal-body-footer">
+                <input type="file" className="modal-upload-image" />
+              </div>
+            </div>
+          </label>
         </form>
       </div>
       <div className="line"></div>
