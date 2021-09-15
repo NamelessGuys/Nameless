@@ -70,10 +70,71 @@
   top: 10vh;
   color: var(--white-color);
   z-index: 10000000000;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
 }
 
 #add-post .line {
   background-color: var(--light-color);
+}
+
+.modal-body {
+  padding: 0 2rem;
+  margin: auto;
+}
+.modal-header {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+  margin-bottom: -1.5rem;
+}
+.modal-header .btn.btn-danger {
+  text-align: center;
+  padding: 0rem 1rem;
+  max-height: 2rem;
+  min-width: 2rem;
+  font-size: 1.2rem;
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+.modal-input {
+  margin: 1rem 0;
+  width: 100%;
+}
+.input-large {
+  height: 150px;
+  text-align: left;
+  width: 100%;
+}
+.modal-body-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-input.tag {
+  width: 35vw;
+}
+.upload-img {
+  width: 18vw;
+  margin-right: -2px;
+  font-size: 1.3rem;
+  padding-top: 9px;
+  height: 3rem;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+.upload-img:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.modal-upload-image {
+  visibility: hidden;
+}
+.modal-footer {
+  padding: 0rem 2rem;
+  float: right;
+  margin-top: 1rem;
 }
 
 /***************************/
@@ -136,7 +197,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -230,7 +291,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url("../img/service-2.PNG") no-repeat center center/cover;
+  background: url('../img/service-2.PNG') no-repeat center center/cover;
 }
 
 .post-footer {
@@ -308,62 +369,24 @@
   width: 50%;
 }
 /***************************/
-/********* upload button ***/
+/********* comments ********/
 /***************************/
 
-.upload-btn {
-  color: var(--primary-color);
-  background-color: transparent;
-  font-size: 3rem;
+.comment-box {
+  width: 45%;
+  height: 80vh;
+  background-color: var(--graylight-color);
+  margin-left: 20px;
+  margin-top: 8px;
+  border-radius: 5px;
+  position: relative;
 }
-
-/***************************/
-/********* Modal ***/
-/***************************/
-
-#add-post {
-  margin-top: 1.5rem;
-  padding: 0.5rem;
-}
-
-.modal-body {
-  padding: 0 2rem;
-  margin: auto;
-}
-.modal-header {
-  display: flex;
-  margin-top: 1rem;
-  justify-content: space-between;
-  padding: 0rem 2rem;
-}
-.modal-header .btn.btn-danger {
-  text-align: center;
-  padding: 0rem 1rem;
-  max-height: 3rem;
-  min-width: 3rem;
-  font-size: 2rem;
-}
-
-.modal-input {
-  margin: 1rem 0;
-  width: 100%;
-}
-.input-large {
-  height: 150px;
-  text-align: left;
-  width: 100%;
-}
-.modal-input.tag {
-  width: 40%;
-}
-
-.modal-body-footer {
-  display: flex;
-  width: 100%;
-}
-.modal-upload-image {
-  visibility: hidden;
-}
-.modal-footer {
-  padding: 0rem 2rem;
+.add-comment {
+  width: 100vw;
+  margin: 10px;
+  margin-right: 10px;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  background-color: var(--graydark-color);
 }
