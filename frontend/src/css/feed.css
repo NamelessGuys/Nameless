@@ -366,27 +366,105 @@
 
 .post {
   margin-left: 0;
-  width: 50%;
+  width: 45vw;
+  margin-top: -3rem;
 }
 /***************************/
 /********* comments ********/
 /***************************/
 
 .comment-box {
-  width: 45%;
-  height: 80vh;
+  position: fixed;
+  width: 35vw;
+  top: 13vh;
+  right: 5vw;
+  max-height: 80vh;
+  overflow-y: scroll;
   background-color: var(--graylight-color);
-  margin-left: 20px;
-  margin-top: 8px;
   border-radius: 5px;
-  position: relative;
+  padding: 0 0.5rem;
+  padding-bottom: 3rem;
 }
+
+.comment-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.comment-box::-webkit-scrollbar-track {
+  background-color: var(--graylight-color);
+}
+
+.comment-box::-webkit-scrollbar-thumb {
+  background-color: var(--light-color);
+  height: 10px;
+}
+
+.single-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 0.4rem 0;
+  background-color: var(--graydark-color);
+  width: 100%;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.comment-avatar {
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+.comment-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  flex: 7;
+}
+
+.comment-text {
+  font-size: 0.8rem;
+}
+
 .add-comment {
-  width: 100vw;
+  position: fixed;
+  right: 4.25vw;
+  bottom: 5.4vh;
+  width: 35vw;
+  height: 3rem;
   margin: 10px;
   margin-right: 10px;
-  position: absolute;
-  bottom: 0;
   padding: 5px;
   background-color: var(--graydark-color);
+  z-index: 100;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.comment-input {
+  width: 30vw;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+.comment-input:focus {
+  outline: 0;
+  box-shadow: 0 0 3px 1px var(--primary-color);
+}
+
+.send-btn {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 0;
+  font-size: 2rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in;
+}
+
+.send-btn:hover {
+  transform: scale(0.95);
+  opacity: 0.85;
 }
