@@ -55,7 +55,7 @@
 
 .slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 26px;
   width: 26px;
   left: 4px;
@@ -176,16 +176,18 @@ input:checked + .slider:before {
 .row-card {
   display: flex;
   padding: 10px;
+  justify-content: space-around;
 }
 .row-card-2 {
   display: flex;
   padding: 10px;
+  justify-content: space-around;
 }
 
 .card {
-  background-color: var(--white-color);
-  width: 340px;
-  height: 410px;
+  background-color: var(--graydark-color);
+  width: 300px;
+  height: 270px;
   text-align: center;
   border-radius: 10px;
   margin: 10px;
@@ -198,34 +200,34 @@ input:checked + .slider:before {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+/* 
 .card-image {
   border-radius: 100%;
   width: 150px;
   height: auto;
   position: relative;
   top: 20px;
-}
+} */
 
 .card-info {
   /* isme name,role,description daala hua hai */
-  margin-top: 60px;
+  margin-top: -100px;
   padding: 10px;
 }
 
 #contact h1 {
-  color: var(--dark-color);
+  color: var(--white-color);
 }
 
 #contact p {
-  color: var(--graydark-color);
+  color: var(--white-color);
 }
 .card-social-icons a {
   padding: 10px;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .card-social-icons a:hover {
-  color: black;
+  color: var(--primary-color);
 }

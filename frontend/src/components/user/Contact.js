@@ -30,19 +30,16 @@ const Contact = () => {
         <div className="row-card">
           <div className="card">
             <div className="card-background">
-              <img
+              {/* <img
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png"
                 className="card-image"
-              />
+              /> */}
             </div>
             <div className="card-info">
               <h1>Ayush Bansal</h1>
               <p>frontend developer</p>
               <br />
-              <p>
-                Demi Lovato is a Grammy nominated and multi-platinum singer,
-                songwriter, actress.
-              </p>
+              <p>Behen ka loda</p>
             </div>
             <div className="card-social-icons">
               <a href="mailto:bansal.ayush2002@gmail.com">
@@ -58,10 +55,10 @@ const Contact = () => {
           </div>
           <div className="card">
             <div className="card-background">
-              <img
+              {/* <img
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png"
                 className="card-image"
-              />
+              /> */}
             </div>
             <div className="card-info">
               <h1>Gaurav Bansal</h1>
@@ -86,10 +83,10 @@ const Contact = () => {
           </div>
           <div className="card">
             <div className="card-background">
-              <img
+              {/* <img
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png"
                 className="card-image"
-              />
+              /> */}
             </div>
             <div className="card-info">
               <h1>Hitesh Marwaha</h1>
@@ -116,10 +113,10 @@ const Contact = () => {
         <div className="row-card-2">
           <div className="card">
             <div className="card-background">
-              <img
+              {/* <img
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png"
                 className="card-image"
-              />
+              /> */}
             </div>
             <div className="card-info">
               <h1>Pushp Jain</h1>
@@ -144,10 +141,10 @@ const Contact = () => {
           </div>
           <div className="card">
             <div className="card-background">
-              <img
+              {/* <img
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/238/bird_1f426.png"
                 className="card-image"
-              />
+              /> */}
             </div>
             <div className="card-info">
               <h1>Krish Chopra</h1>
