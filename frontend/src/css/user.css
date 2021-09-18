@@ -55,7 +55,7 @@
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -159,18 +159,15 @@ input:checked + .slider:before {
 /****************************/
 .contact-header {
   width: 100%;
-  height: 200px;
-  background-color: var(--white-color);
-  border-radius: 10px;
-  color: var(--primary-color);
 }
-.contact-para {
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
+
 .contact-header h2 {
-  font-size: 2rem;
-  padding-left: 10px;
+  font-size: 3.5rem;
+}
+
+.contact-header .contact-mail {
+  color: var(--white-color);
+  font-size: 1.5rem;
 }
 
 .row-card {

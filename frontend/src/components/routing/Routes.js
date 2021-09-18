@@ -6,6 +6,7 @@ import Feed from '../feed/Feed';
 import Post from '../post/Post';
 import Settings from '../user/Settings';
 import Contact from '../user/Contact';
+import Profile from '../user/Profile';
 import NotFound from '../layout/NotFound';
 
 const Routes = () => {
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route exact path="/post" component={Post} />
         <Route exact path="/settings" component={Settings} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/profile" component={Profile} />
         <Route component={NotFound} />
       </Switch>
     </div>

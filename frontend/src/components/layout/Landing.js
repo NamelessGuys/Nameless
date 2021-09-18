@@ -1,5 +1,6 @@
-import React from "react";
-import svgart from "../../img/undraw.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import svgart from '../../img/undraw.svg';
 
 const Landing = () => {
   return (
@@ -15,7 +16,7 @@ const Landing = () => {
               repellendus minus quasi nemo?
             </p>
 
-            <button>Register</button>
+            <Link to="/register">Register</Link>
           </div>
           <div className="right">
             <img src={svgart} alt="" />

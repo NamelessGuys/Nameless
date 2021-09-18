@@ -41,12 +41,12 @@ const authLinks = (
             </div>
           </button>
           <div className="dropdown-content">
-            <a href="#">
+            <Link to="/profile">
               <i>
                 <FaUser />
               </i>
               Profile
-            </a>
+            </Link>
             <Link to="/settings">
               <i>
                 <FaCog />

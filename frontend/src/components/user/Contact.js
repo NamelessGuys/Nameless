@@ -1,31 +1,17 @@
-import React from "react";
-import "../../css/user.css";
-import { FiMail } from "react-icons/fi";
-import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
+import React from 'react';
+import '../../css/user.css';
+import { FiMail } from 'react-icons/fi';
+import { FaInstagramSquare, FaLinkedin } from 'react-icons/fa';
+
 const Contact = () => {
   return (
     <div id="contact">
       <div className="contact-content">
         <div className="contact-header">
-          <h2>Nameless at your service</h2>
-          <p className="contact-para">
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem
-          </p>
-          <div className="card-social-icons">
-            <a href="mailto:bansal.ayush2002@gmail.com">
-              <FiMail />
-            </a>
-            <a href="https://www.linkedin.com/in/ayush-bansal-50a6731b7/">
-              <FaLinkedin />
-            </a>
-            <a href="https://www.instagram.com/ayushbansal2002/">
-              <FaInstagramSquare />
-            </a>
-          </div>
+          <h2 className="text-primary large">Nameless at your service</h2>
+          <a href="mailto:nameless.care@gmail.com" className="contact-mail">
+            nameless.care@gmail.com
+          </a>
         </div>
         <div className="row-card">
           <div className="card">
