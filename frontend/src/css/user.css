@@ -228,3 +228,41 @@ input:checked + .slider:before {
 .card-social-icons a:hover {
   color: var(--primary-color);
 }
+
+/****************************/
+/**********Contact***********/
+/****************************/
+.profile-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 160px;
+  width: 50vw;
+}
+
+.profile-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-avatar img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.profile-user {
+  margin-top: 1.5rem;
+}
+
+.profile-user p {
+  /* margin-top: 0.7rem; */
+  color: var(--light-color);
+  font-size: 0.85rem;
+}
+
+.profile-college {
+}

@@ -16,7 +16,9 @@ const Landing = () => {
               repellendus minus quasi nemo?
             </p>
 
-            <Link to="/register">Register</Link>
+            <Link to="/register" className="landing-btn">
+              Register
+            </Link>
           </div>
           <div className="right">
             <img src={svgart} alt="" />

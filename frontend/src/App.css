@@ -462,7 +462,7 @@ button {
   height: 400px;
 }
 
-.landing-main button {
+.landing-main .landing-btn {
   width: 28%;
   margin-top: 24px;
   font-weight: 400;
@@ -474,7 +474,7 @@ button {
   background-color: var(--primary-color);
   color: var(--white-color);
 }
-.landing-main button:hover {
+.landing-main .landing-btn:hover {
   background-color: var(--dark-color);
   color: var(--primary-color);
   cursor: pointer;
