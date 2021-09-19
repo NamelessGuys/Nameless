@@ -341,12 +341,12 @@
   background: var(--graydark-color);
   border-radius: 0.25rem;
   z-index: 100;
-  opacity: 0.95;
+  /* opacity: 0.95; */
   transition: all 0.3s ease-in;
 }
 
 .register-card:hover {
-  box-shadow: 0 0 30px 3px var(--graydark-color);
+  /* box-shadow: 0 0 30px 3px var(--graydark-color); */
 }
 
 .register-card .form-item {
@@ -357,7 +357,8 @@
 .register-card .form-item input,
 .register-card .form-item select {
   padding: 4px 2px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
   border-radius: 4px;
   width: 60%;
   color: var(--graylight-color) !important;

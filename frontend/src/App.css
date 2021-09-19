@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--dark-color);
@@ -30,7 +30,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Balsamiq sans';
+  /* font-family: 'Balsamiq sans'; */
+  /* font-family: "Arvo", serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -258,10 +260,10 @@ ul {
   color: #888;
 }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
 .form select,
 .form textarea {
   display: block;
@@ -271,7 +273,7 @@ ul {
   border: 1px solid #ccc;
 }
 
-.form input[type='submit'],
+.form input[type="submit"],
 button {
   font: inherit;
 }
@@ -449,14 +451,18 @@ button {
 
 .landing-main .left h1 {
   font-size: 4rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 .landing-main .left h6 {
   letter-spacing: 0.3rem;
   margin-top: -12px;
   margin-bottom: 24px;
   font-size: 1.5rem;
-  font-weight: 200;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.landing-main .left p {
+  line-height: 2rem;
 }
 .landing-main img {
   height: 400px;
@@ -478,6 +484,7 @@ button {
   background-color: var(--dark-color);
   color: var(--primary-color);
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 800px) {
