@@ -55,7 +55,7 @@
 
 .slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 26px;
   width: 26px;
   left: 4px;
@@ -230,7 +230,7 @@ input:checked + .slider:before {
 }
 
 /****************************/
-/**********Contact***********/
+/*******Profile Header*******/
 /****************************/
 .profile-head {
   display: flex;
@@ -265,4 +265,38 @@ input:checked + .slider:before {
 }
 
 .profile-college {
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  color: var(--primary-color);
+}
+/****************************/
+/*******Profile Content*******/
+/****************************/
+.profile-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 50vw;
+  height: 200px;
+}
+
+.profile-counter {
+  display: flex;
+  justify-content: center;
+
+  /* margin-left: -2rem; */
+}
+.counter:first-of-type {
+  margin-left: 0;
+}
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+.counter h2 {
+  font-size: 3rem;
 }
