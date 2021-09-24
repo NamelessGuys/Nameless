@@ -1,6 +1,6 @@
-import React from 'react';
-import Carousel from 'react-elastic-carousel';
-import Item from './Item';
+import React from "react";
+import Carousel from "react-elastic-carousel";
+import Item from "./Item";
 
 const Profile = () => {
   const items = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -60,11 +60,11 @@ const Profile = () => {
           itemsToShow={3}
           itemsToScroll={1}
           enableAutoPlay
-          autoPlaySpeed={1500}
+          autoPlaySpeed={4000}
         >
           {items.map((item) => (
             <Item key={item}>
-              {' '}
+              {" "}
               <img
                 src="https://randomuser.me/api/portraits/men/1.jpg"
                 alt="User Avatar"
