@@ -197,7 +197,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -250,6 +250,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
 }
 
 .post-action:first-child {
@@ -291,7 +292,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url("../img/service-2.PNG") no-repeat center center/cover;
+  background: url('../img/service-2.PNG') no-repeat center center/cover;
 }
 
 .post-footer {
