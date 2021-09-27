@@ -10,16 +10,16 @@ const Feed = () => {
   return (
     <Fragment>
       {isModalVisible && <AddPostModal />}
-      <div id="add-post-btn">
-        <div className="add-btn" onClick={() => setIsModalVisible(true)}>
+      <div id='add-post-btn'>
+        <div className='add-btn' onClick={() => setIsModalVisible(true)}>
           +
         </div>
-        <div className="add-desc">Upload new Post</div>
-        <div className="arrow-right"></div>
+        <div className='add-desc'>Upload new Post</div>
+        <div className='arrow-right'></div>
       </div>
-      <div id="feed">
-        <Posts />
+      <div id='feed'>
         <Filters />
+        <Posts />
       </div>
     </Fragment>
   );

@@ -18,7 +18,11 @@
   margin-bottom: 1rem;
   margin-left: 3vw;
 }
-
+@media screen and (max-width: 500px) {
+  #add-post-btn {
+    margin-top: -50px;
+  }
+}
 .add-btn {
   font-size: 2.5rem;
   height: 60px;
@@ -198,7 +202,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -293,7 +297,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url("../img/service-2.PNG") no-repeat center center/cover;
+  background: url('../img/service-2.PNG') no-repeat center center/cover;
 }
 
 .post-footer {
@@ -356,7 +360,18 @@
 .filter .btn {
   margin: 0.2rem;
 }
-
+@media screen and (max-width: 500px) {
+  #filters {
+    display: block;
+    margin: 10px;
+    left: 0;
+    float: none;
+    height: 100%;
+    width: auto;
+    position: relative;
+    top: 0;
+  }
+}
 /***************************/
 /********* Post ************/
 /***************************/
@@ -370,6 +385,21 @@
   margin-left: 0;
   width: 45vw;
   margin-top: -3rem;
+}
+@media screen and (max-width: 500px) {
+  .feed-post,
+  .post {
+    width: auto;
+    margin: 10px;
+  }
+  .post-img {
+    display: block;
+    max-width: 380px;
+    max-height: 380px;
+    width: auto;
+    margin: auto;
+    height: auto;
+  }
 }
 /***************************/
 /********* comments ********/
