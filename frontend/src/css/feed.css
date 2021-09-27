@@ -140,6 +140,16 @@
 /***************************/
 /******** FeedPost *********/
 /***************************/
+#feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 800px) {
+  #filters {
+    display: block;
+  }
+}
 .feed-post,
 .post {
   margin: 0.5rem 0;
@@ -197,7 +207,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -292,7 +302,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url('../img/service-2.PNG') no-repeat center center/cover;
+  background: url("../img/service-2.PNG") no-repeat center center/cover;
 }
 
 .post-footer {
@@ -345,7 +355,6 @@
   width: 30%;
   border-radius: 12px;
   padding: 1rem;
-  position: fixed;
   top: 21vh;
   right: 5vw;
 }
