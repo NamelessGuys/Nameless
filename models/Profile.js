@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
   },
   posts: {
     type: Number,
@@ -21,13 +21,6 @@ const ProfileSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  badges: [
-    {
-      badge_number: {
-        type: Number,
-      },
-    },
-  ],
 });
 
-module.exports = mongoose.model("profile", ProfileSchema);
+module.exports = mongoose.model('profile', ProfileSchema);
