@@ -140,16 +140,7 @@
 /***************************/
 /******** FeedPost *********/
 /***************************/
-#feed {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-@media only screen and (max-width: 800px) {
-  #filters {
-    display: block;
-  }
-}
+
 .feed-post,
 .post {
   margin: 0.5rem 0;
