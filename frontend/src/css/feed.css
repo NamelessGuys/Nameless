@@ -18,11 +18,6 @@
   margin-bottom: 1rem;
   margin-left: 3vw;
 }
-@media screen and (max-width: 500px) {
-  #add-post-btn {
-    margin-top: -50px;
-  }
-}
 .add-btn {
   font-size: 2.5rem;
   height: 60px;
@@ -62,9 +57,15 @@
   box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 500px) {
+  #add-post-btn {
+    margin-top: -50px;
+  }
+}
 /***************************/
 /***** Add Post Modal*******/
 /***************************/
+
 #add-post {
   background-color: var(--graylight-color);
   height: 80vh;
@@ -140,6 +141,20 @@
   float: right;
   margin-top: 1rem;
 }
+@media screen and (max-width: 500px) {
+  #add-post {
+    height: 90vh;
+    width: 90vw;
+    margin-left: -12.5vw;
+    opacity: 0.97;
+  }
+  .upload-img span {
+    display: none;
+  }
+  .modal-footer {
+    margin-top: 2vh;
+  }
+}
 
 /***************************/
 /******** FeedPost *********/
@@ -202,7 +217,7 @@
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -297,7 +312,7 @@
 
 .post-img {
   height: 450px !important;
-  background: url('../img/service-2.PNG') no-repeat center center/cover;
+  background: url("../img/service-2.PNG") no-repeat center center/cover;
 }
 
 .post-footer {
