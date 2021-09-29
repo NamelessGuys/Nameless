@@ -7,7 +7,6 @@ const User = require('../../models/User');
 // @route     GET api/profile/me
 // @desc      Get current user profile
 // @access    Private
-
 router.get('/me', auth, async (req, res) => {
   try {
     let profile = await Profile.findOne({
@@ -61,8 +60,11 @@ router.get('/user/:user_id', async (req, res) => {
 // @desc      Update the profile stats
 // @access    Private
 router.put('/:user_id', auth, async (req, res) => {
-  const { score, votes, posts, comments } = req.body;
-  const updatedStats = { score, votes, posts, comments };
+  if (req.user.id !== req.params.user_id) {
+    return res.status(400).json({ errors: [{ msg: 'Not Authorized' }] });
+  }
+
+  const updatedStats = { ...req.body };
 
   try {
     const profile = await Profile.findOneAndUpdate(

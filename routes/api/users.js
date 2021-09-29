@@ -6,6 +6,7 @@ const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
+const Settings = require('../../models/Settings');
 
 // @route     POST api/users
 // @desc      Register user
@@ -53,6 +54,14 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
+      // Get id of the user
+      const currUser = await User.findOne({ email });
+      const { id } = currUser;
+
+      // Instantiate settings for registering user
+      const settings = new Settings({ user: id });
+      await settings.save();
+
       // Return jsonwebtoken
       const payload = {
         user: {
@@ -93,6 +102,10 @@ router.put(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
+    }
+
+    if (req.user.id !== req.params.user_id) {
+      return res.status(400).json({ errors: [{ msg: 'Not Authorized' }] });
     }
 
     let { password } = req.body;
