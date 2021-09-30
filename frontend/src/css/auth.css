@@ -46,7 +46,7 @@
   -ms-box-shadow: none !important;
 }
 
-#login input[type="checkbox"] {
+#login input[type='checkbox'] {
   appearance: checkbox !important;
   -moz-appearance: checkbox !important;
   -webkit-appearance: checkbox !important;
@@ -321,13 +321,108 @@
   margin-right: 20px;
   margin-top: 60px;
 }
+@media screen and (max-width: 1200px) {
+  .login-container {
+    width: calc(100% - 30px);
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .login-container {
+    max-width: 1200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .signin-content {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -o-justify-content: center;
+    -ms-justify-content: center;
+  }
+
+  .signup-form {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    /* box-sizing: border-box; */
+    padding: 0 30px;
+  }
+
+  .signin-image {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 50px;
+    order: 2;
+    -moz-order: 2;
+    -webkit-order: 2;
+    -o-order: 2;
+    -ms-order: 2;
+  }
+
+  .signup-form,
+  .signup-image,
+  .signin-form,
+  .signin-image {
+    width: auto;
+  }
+
+  .social-login {
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -o-justify-content: center;
+    -ms-justify-content: center;
+  }
+
+  .form-button {
+    text-align: center;
+  }
+
+  .signin-form {
+    order: 1;
+    -moz-order: 1;
+    -webkit-order: 1;
+    -o-order: 1;
+    -ms-order: 1;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0 30px;
+  }
+
+  .form-title {
+    text-align: center;
+  }
+  #login img {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .social-login {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+
+  .social-label {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+}
 /********************************/
 /************Register ***********/
 /********************************/
 .sign-up-bg {
   width: 100vw;
   height: 100vh;
-  background: url("../img/sign-up.svg");
+  background: url('../img/sign-up.svg') no-repeat center center/cover;
   position: absolute;
   top: 110px;
   left: 10px;
@@ -394,4 +489,17 @@
   justify-content: center;
   align-items: center;
   min-height: 70vh;
+}
+@media screen and (max-width: 400px) {
+  .register-card {
+    display: block;
+    /* margin: auto; */
+    margin-left: 2.5vw;
+    width: 95vw;
+  }
+
+  .register-card .form-item input,
+  .register-card .form-item select {
+    width: 100%;
+  }
 }

@@ -153,6 +153,17 @@ input:checked + .slider:before {
 .password-btn .btn:last-child {
   margin-right: 0rem !important;
 }
+@media screen and (max-width: 768px) {
+  .settings-img {
+    display: none;
+  }
+  .settings-content {
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+  }
+}
 
 /****************************/
 /**********Contact***********/
@@ -405,4 +416,14 @@ input:checked + .slider:before {
 .rec.rec-dot_active {
   background-color: var(--primary-color);
   color: var(--white-color);
+}
+@media screen and (max-width: 768px) {
+  .profile-head {
+    width: 100vw;
+    padding-right: 30px;
+    padding-left: 10px;
+  }
+  .profile-head img {
+    margin-right: 10px;
+  }
 }
