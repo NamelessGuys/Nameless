@@ -411,19 +411,46 @@ input:checked + .slider:before {
 .rec.rec-dot {
   box-shadow: 0 0 1px 3px var(--primary-color);
   margin: 0.8rem;
+
+  margin-top: -30px;
 }
 
 .rec.rec-dot_active {
   background-color: var(--primary-color);
   color: var(--white-color);
+
+  margin-top: -50px;
 }
 @media screen and (max-width: 768px) {
   .profile-head {
     width: 100vw;
-    padding-right: 30px;
-    padding-left: 10px;
+    padding-right: 10vw;
+    padding-left: 5vw;
+    margin-top: -5vh;
   }
   .profile-head img {
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .profile-score {
+    display: block;
+    margin: auto;
+    padding: 0;
+  }
+  .profile-rank img {
+    margin: auto;
+    display: block;
+    padding-bottom: 40px;
+    margin-top: -30px;
+  }
+  .profile-counter {
+    margin: auto;
+    margin-left: -9vw;
+  }
+  .profile-badges {
+    margin-top: -50px;
+    margin-left: 10px;
     margin-right: 10px;
   }
 }
