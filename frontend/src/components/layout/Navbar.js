@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import Logo from '../../img/Nameless-Title-Only-Black.png';
-import { FaUser, FaCog } from 'react-icons/fa';
-import { FiLogOut } from 'react-icons/fi';
-import { HiMailOpen } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from "react";
+import Logo from "../../img/logo-white-big.png";
+import { FaUser, FaCog } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
+import { HiMailOpen } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const guestLinks = (
   <ul>
@@ -78,6 +78,9 @@ const Navbar = () => {
       <div className="navbar-brand">
         <Link to="/">
           <img src={Logo} alt="Nameless" />
+          {/* <svg>
+            <image href={Logo} />
+          </svg> */}
         </Link>
       </div>
       {/* {guestLinks} */}
