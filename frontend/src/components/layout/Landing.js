@@ -11,9 +11,9 @@ const Landing = () => {
             <h1>Nameless</h1>
             <h6>Anonymous.Post.Interact</h6>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-              consequuntur sapiente quod similique? Mollitia cum consectetur
-              repellendus minus quasi nemo?
+              A platform for you to interact with college students all across
+              Delhi; chatrooms to share memes and stuff, ask for resources, and
+              much more all of it right here and that too anonymously!
             </p>
 
             <Link to="/register" className="landing-btn">

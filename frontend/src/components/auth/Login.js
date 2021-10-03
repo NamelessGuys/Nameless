@@ -1,6 +1,6 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
+import { FaUser, FaLock } from 'react-icons/fa';
 import loginImage from '../../img/login_Image.svg';
 import '../../css/auth.css';
 
@@ -19,16 +19,16 @@ const Login = () => {
             <h2 className="form-title">Sign In</h2>
             <form method="POST" className="login-form" id="login-form">
               <div className="form-group">
-                <label htmlFor="email">
+                <label htmlFor="username">
                   <i>
-                    <FaEnvelope />
+                    <FaUser />
                   </i>
                 </label>
                 <input
                   type="text"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
                 />
               </div>
               <div className="form-group">

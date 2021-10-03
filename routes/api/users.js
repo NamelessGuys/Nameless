@@ -31,7 +31,7 @@ router.post(
 
     try {
       // See if user exists
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ username });
       if (user) {
         return res
           .status(400)
@@ -55,7 +55,7 @@ router.post(
       await user.save();
 
       // Get id of the user
-      const currUser = await User.findOne({ email });
+      const currUser = await User.findOne({ username });
       const { id } = currUser;
 
       // Instantiate settings for registering user

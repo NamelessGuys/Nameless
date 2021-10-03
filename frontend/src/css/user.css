@@ -163,6 +163,12 @@ input:checked + .slider:before {
     width: 100%;
     padding: 10px;
   }
+  .setting p {
+    width: 70%;
+  }
+  .settings-btn .change-password-btn {
+    width: 50%;
+  }
 }
 
 /****************************/
@@ -170,6 +176,7 @@ input:checked + .slider:before {
 /****************************/
 .contact-header {
   width: 100%;
+  padding: 0 2rem;
 }
 
 .contact-header h2 {
@@ -208,19 +215,14 @@ input:checked + .slider:before {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-/* 
-.card-image {
-  border-radius: 100%;
-  width: 150px;
-  height: auto;
-  position: relative;
-  top: 20px;
-} */
 
 .card-info {
-  /* isme name,role,description daala hua hai */
   margin-top: -100px;
   padding: 10px;
+}
+
+.card-bio {
+  font-size: 0.85rem;
 }
 
 #contact h1 {
@@ -238,6 +240,20 @@ input:checked + .slider:before {
 
 .card-social-icons a:hover {
   color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px) {
+  .row-card,
+  .row-card-2 {
+    display: block;
+  }
+  .row-card {
+    margin-bottom: -20px;
+  }
+  .card {
+    margin: auto;
+    margin-bottom: 10px;
+  }
 }
 
 /****************************/
@@ -411,15 +427,12 @@ input:checked + .slider:before {
 .rec.rec-dot {
   box-shadow: 0 0 1px 3px var(--primary-color);
   margin: 0.8rem;
-
   margin-top: -30px;
 }
 
 .rec.rec-dot_active {
   background-color: var(--primary-color);
   color: var(--white-color);
-
-  margin-top: -50px;
 }
 @media screen and (max-width: 768px) {
   .profile-head {
