@@ -8,18 +8,20 @@ import Settings from '../user/Settings';
 import Contact from '../user/Contact';
 import Profile from '../user/Profile';
 import NotFound from '../layout/NotFound';
+import Alert from '../layout/Alert';
 
 const Routes = () => {
   return (
-    <div className="container">
+    <div className='container'>
+      <Alert />
       <Switch>
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/feed" component={Feed} />
-        <Route exact path="/post" component={Post} />
-        <Route exact path="/settings" component={Settings} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/feed' component={Feed} />
+        <Route exact path='/post' component={Post} />
+        <Route exact path='/settings' component={Settings} />
+        <Route exact path='/contact' component={Contact} />
+        <Route exact path='/profile' component={Profile} />
         <Route component={NotFound} />
       </Switch>
     </div>

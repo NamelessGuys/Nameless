@@ -3,8 +3,8 @@
   --dark-color: #030303;
   --white-color: #d7dadc;
   --light-color: #a5a5a7;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --danger-color: #e96075;
+  --success-color: #4ec07d;
   --graydark-color: #1a1a1b;
   --graylight-color: #272729;
 }
@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--dark-color);
@@ -32,7 +32,7 @@ h5,
 h6 {
   /* font-family: 'Balsamiq sans'; */
   /* font-family: "Arvo", serif; */
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -260,10 +260,10 @@ ul {
   color: #888;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
 .form select,
 .form textarea {
   display: block;
@@ -273,7 +273,7 @@ ul {
   border: 1px solid #ccc;
 }
 
-.form input[type="submit"],
+.form input[type='submit'],
 button {
   font: inherit;
 }
