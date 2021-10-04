@@ -303,18 +303,20 @@ button {
 }
 
 .navbar-brand {
-  width: 150px;
+  display: inline;
+  margin: 0;
 }
+
 .navbar-brand img {
-  width: 150px;
   height: 150px;
+  width: 200px;
 }
 
 .navbar-brand:hover {
   background-color: transparent !important;
 }
 
-.navbar img {
+.navbar-profile-img {
   height: 60px;
   width: 200px;
 }

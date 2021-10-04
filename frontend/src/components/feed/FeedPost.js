@@ -12,8 +12,8 @@ const FeedPost = () => {
         <h3>Lorem Ipsum</h3>
         <div className="post-info">
           <div onClick={() => setIsOptionVisible(!isOptionVisible)}>
-            <input type="checkbox" class="toggler" />
-            <div class="hamburger">
+            <input type="checkbox" className="toggler" />
+            <div className="hamburger">
               <div></div>
             </div>
           </div>

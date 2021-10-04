@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
-import Logo from "../../img/logo-white-big.png";
-import { FaUser, FaCog } from "react-icons/fa";
-import { FiLogOut } from "react-icons/fi";
-import { HiMailOpen } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import Logo from '../../img/logo-white-big.png';
+import { FaUser, FaCog } from 'react-icons/fa';
+import { FiLogOut } from 'react-icons/fi';
+import { HiMailOpen } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const guestLinks = (
   <ul>
@@ -29,11 +29,11 @@ const authLinks = (
       </li>
 
       <li>
-        <div class="dropdown">
-          <button class="dropbtn">
+        <div className="dropdown">
+          <button className="dropbtn">
             <div className="nav-profile">
               <img
-                class="nav-profile-img"
+                className="nav-profile-img"
                 src="https://randomuser.me/api/portraits/men/1.jpg"
                 alt="Profile Pic"
               />
