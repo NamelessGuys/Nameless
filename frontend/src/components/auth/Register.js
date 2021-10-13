@@ -1,5 +1,18 @@
-import React, { Fragment } from 'react';
-const Register = () => {
+import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+
+const Register = ({ isAuthenticated, register, setAlert }) => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    college: '',
+    password: '',
+    password2: '',
+  });
+
   return (
     <Fragment>
       <div className="sign-up-bg"></div>
@@ -41,4 +54,14 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);

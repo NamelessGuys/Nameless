@@ -4,9 +4,7 @@ const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
-const nodemailer = require('nodemailer');
 const { check, validationResult } = require('express-validator');
-const SMTPTransport = require('nodemailer/lib/smtp-transport');
 
 // @route     GET api/posts
 // @desc      Get all posts

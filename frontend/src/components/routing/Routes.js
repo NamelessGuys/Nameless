@@ -9,6 +9,7 @@ import Contact from '../user/Contact';
 import Profile from '../user/Profile';
 import NotFound from '../layout/NotFound';
 import Alert from '../layout/Alert';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
   return (
@@ -17,11 +18,12 @@ const Routes = () => {
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/feed" component={Feed} />
-        <Route exact path="/post" component={Post} />
-        <Route exact path="/settings" component={Settings} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile/:id" component={Profile} />
+        <PrivateRoute exact path="/feed" component={Feed} />
+        <PrivateRoute exact path="/posts/:id" component={Post} />
+        <PrivateRoute exact path="/settings" component={Settings} />
+        <PrivateRoute exact path="/contact" component={Contact} />
+        <PrivateRoute exact path="/dashboard" component={Profile} />
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -308,8 +308,8 @@ button {
 }
 
 .navbar-brand img {
-  height: 150px;
-  width: 200px;
+  height: 60px;
+  width: 100px;
 }
 
 .navbar-brand:hover {
