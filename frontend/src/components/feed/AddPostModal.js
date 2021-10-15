@@ -44,6 +44,12 @@ const AddPostModal = () => {
         </form>
       </div>
       <div className="modal-footer">
+        <div className="nsfw-check">
+          <label htmlFor="nsfw">
+            <input type="checkbox" name="nsfw" className="nsfw-checkbox" />
+            NSFW(18+)
+          </label>
+        </div>
         <button className="btn btn-success">Add Post</button>
       </div>
     </div>

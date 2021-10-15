@@ -1,8 +1,8 @@
-import React from 'react';
-import { SocialIcon } from 'react-social-icons';
-import { FaUser, FaLock } from 'react-icons/fa';
-import loginImage from '../../img/login_Image.svg';
-import '../../css/auth.css';
+import React from "react";
+import { SocialIcon } from "react-social-icons";
+import { FaUser, FaLock } from "react-icons/fa";
+import loginImage from "../../img/login_Image.svg";
+import "../../css/auth.css";
 
 const Login = () => {
   return (
@@ -44,7 +44,7 @@ const Login = () => {
                   placeholder="Password"
                 />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <input
                   type="checkbox"
                   name="remember-me"
@@ -54,7 +54,7 @@ const Login = () => {
                 <label htmlFor="remember-me" className="label-agree-term">
                   Remember me
                 </label>
-              </div>
+              </div> */}
               <div className="form-group form-button">
                 <input
                   type="submit"

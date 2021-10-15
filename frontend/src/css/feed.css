@@ -68,7 +68,7 @@
 
 #add-post {
   background-color: var(--graylight-color);
-  height: 80vh;
+  height: 500px;
   width: 65vw;
   position: absolute;
   left: 17.5vw;
@@ -124,9 +124,9 @@
   width: 18vw;
   margin-right: -2px;
   font-size: 1.3rem;
-  padding-top: 9px;
   height: 3rem;
   transition: 0.2s;
+  padding-top: 12px !important;
   margin-top: 10px;
 }
 .upload-img:hover {
@@ -134,12 +134,28 @@
   color: var(--white-color);
 }
 .modal-upload-image {
-  visibility: hidden;
+  display: none;
 }
 .modal-footer {
   padding: 0rem 2rem;
-  float: right;
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.nsfw-check {
+  font-weight: 800;
+}
+input.nsfw-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-color);
+  margin-right: 5px;
+}
+
+.nsfw-check label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media screen and (max-width: 500px) {
   #add-post {

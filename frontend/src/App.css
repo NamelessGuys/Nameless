@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--dark-color);
@@ -32,7 +32,7 @@ h5,
 h6 {
   /* font-family: 'Balsamiq sans'; */
   /* font-family: "Arvo", serif; */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -260,10 +260,10 @@ ul {
   color: #888;
 }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
 .form select,
 .form textarea {
   display: block;
@@ -273,7 +273,7 @@ ul {
   border: 1px solid #ccc;
 }
 
-.form input[type='submit'],
+.form input[type="submit"],
 button {
   font: inherit;
 }
@@ -294,7 +294,6 @@ button {
 .navbar {
   width: 100%;
   padding: 0.5rem 4rem;
-  margin-top: -1rem;
   position: fixed;
   z-index: 10000;
   opacity: 0.9;
@@ -308,8 +307,8 @@ button {
 }
 
 .navbar-brand img {
+  width: 200px;
   height: 60px;
-  width: 100px;
 }
 
 .navbar-brand:hover {
@@ -324,6 +323,7 @@ button {
 .navbar ul {
   display: flex;
   float: right;
+  margin-top: 1.2rem;
 }
 
 .navbar ul a {

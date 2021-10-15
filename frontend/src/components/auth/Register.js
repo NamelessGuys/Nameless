@@ -47,6 +47,9 @@ const Register = ({ isAuthenticated, register, setAlert }) => {
                 onChange={(e) => onChangeForm(e)}
               />
             </div>
+            <small className="register-small-text">
+              We recommend not using your real name.
+            </small>
             <div className="form-item">
               <input
                 type="text"
@@ -57,7 +60,7 @@ const Register = ({ isAuthenticated, register, setAlert }) => {
             </div>
             <div className="form-item">
               <select name="college" onChange={(e) => onChangeForm(e)}>
-                <option>Select College</option>
+                <option>Select College/University</option>
                 <option value="dtu">DTU</option>
                 <option value="nsut">NSUT</option>
                 <option value="iitd">IIT D</option>

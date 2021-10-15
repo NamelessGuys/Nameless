@@ -35,6 +35,7 @@
   -webkit-appearance: unset !important;
   -o-appearance: unset !important;
   -ms-appearance: unset !important;
+  color: var(--white-color);
 }
 
 #login input:focus {
@@ -46,7 +47,7 @@
   -ms-box-shadow: none !important;
 }
 
-#login input[type='checkbox'] {
+#login input[type="checkbox"] {
   appearance: checkbox !important;
   -moz-appearance: checkbox !important;
   -webkit-appearance: checkbox !important;
@@ -422,7 +423,7 @@
 .sign-up-bg {
   width: 100vw;
   height: 100vh;
-  background: url('../img/sign-up.svg') no-repeat center center/cover;
+  background: url("../img/sign-up.svg") no-repeat center center/cover;
   position: absolute;
   top: 110px;
   left: 10px;
@@ -439,7 +440,7 @@
   flex-direction: column;
   justify-content: space-around;
   z-index: 100;
-  /* opacity: 0.95; */
+  opacity: 0.95;
   transition: all 0.3s ease-in;
 }
 
@@ -477,9 +478,19 @@
   /* box-shadow: 0 0 4px 2.5px var(--primary-color); */
   box-shadow: 0 0 1.5px 1.5px var(--primary-color);
 }
+.register-card .form-item:nth-of-type(1) {
+  margin-bottom: 12px;
+}
+.register-card .form-item:nth-of-type(2) {
+  margin-top: 0;
+}
 
 .register-card form button {
   margin-top: 6px;
+}
+.register-small-text {
+  color: var(--light-color);
+  font-size: 0.7rem;
 }
 
 .center {
