@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { login } from "../../actions/auth";
 import { SocialIcon } from "react-social-icons";
+import PropTypes from "prop-types";
 import { FaUser, FaLock } from "react-icons/fa";
 import loginImage from "../../img/login_Image.svg";
 import "../../css/auth.css";
+import { Redirect } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ isAuthenticated, login }) => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const { username, password } = formData;
+
+  const onChangeForm = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    login({ username, password });
+  };
+
+  if (isAuthenticated) {
+    return <Redirect to="/feed" />;
+  }
+
   return (
     <div className="bg-dark" id="login">
       <div className="login-container">
@@ -29,6 +52,8 @@ const Login = () => {
                   name="username"
                   id="username"
                   placeholder="Username"
+                  value={username}
+                  onChange={(e) => onChangeForm(e)}
                 />
               </div>
               <div className="form-group">
@@ -42,6 +67,8 @@ const Login = () => {
                   name="password"
                   id="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => onChangeForm(e)}
                 />
               </div>
               {/* <div className="form-group">
@@ -62,6 +89,7 @@ const Login = () => {
                   id="signin"
                   className="form-submit"
                   value="Sign In"
+                  onSubmit={(e) => onSubmitForm(e)}
                 />
               </div>
             </form>
@@ -90,5 +118,12 @@ const Login = () => {
     </div>
   );
 };
+Login.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  login: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
-export default Login;
+export default connect(mapStateToProps, { login })(Login);
