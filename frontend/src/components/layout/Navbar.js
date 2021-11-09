@@ -1,9 +1,12 @@
-import React, { Fragment } from "react";
-import Logo from "../../img/logo-white-big.png";
-import { FaUser, FaCog } from "react-icons/fa";
-import { FiLogOut } from "react-icons/fi";
-import { HiMailOpen } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
+import Logo from '../../img/logo-white-big.png';
+import { FaUser, FaCog } from 'react-icons/fa';
+import { FiLogOut } from 'react-icons/fi';
+import { HiMailOpen } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const guestLinks = (
   <ul>
@@ -59,7 +62,7 @@ const authLinks = (
               </i>
               Contact Us
             </Link>
-            <Link to="/">
+            <Link to="/" onClick={logout}>
               <i>
                 <FiLogOut />
               </i>
@@ -72,7 +75,7 @@ const authLinks = (
   </Fragment>
 );
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar bg-graydark">
       <div className="navbar-brand">
@@ -80,10 +83,20 @@ const Navbar = () => {
           <img src={Logo} alt="Nameless" />
         </Link>
       </div>
-      {/* {guestLinks} */}
-      {authLinks}
+      {!loading && (
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      )}
     </nav>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(Navbar);
