@@ -7,10 +7,10 @@ import {
   LOGIN_FAIL,
   CHANGE_PASSWORD,
   LOGOUT,
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
   user: null,
@@ -29,8 +29,7 @@ export default function (state = initialState, action) {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', payload.token);
-      console.log('Register Success');
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         ...payload,
@@ -47,8 +46,7 @@ export default function (state = initialState, action) {
     case LOGIN_FAIL:
     case AUTH_ERROR:
     case LOGOUT:
-      localStorage.removeItem('token');
-      console.log('Register Fail');
+      localStorage.removeItem("token");
       return {
         ...state,
         token: null,

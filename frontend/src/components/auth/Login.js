@@ -40,7 +40,11 @@ const Login = ({ isAuthenticated, login }) => {
 
           <div className="signin-form">
             <h2 className="form-title">Sign In</h2>
-            <form method="POST" className="login-form" id="login-form">
+            <form
+              className="login-form"
+              id="login-form"
+              onSubmit={(e) => onSubmitForm(e)}
+            >
               <div className="form-group">
                 <label htmlFor="username">
                   <i>
@@ -89,7 +93,6 @@ const Login = ({ isAuthenticated, login }) => {
                   id="signin"
                   className="form-submit"
                   value="Sign In"
-                  onSubmit={(e) => onSubmitForm(e)}
                 />
               </div>
             </form>
