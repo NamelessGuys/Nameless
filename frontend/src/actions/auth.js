@@ -7,6 +7,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  CHANGE_PASSWORD,
   LOGOUT,
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
@@ -108,4 +109,36 @@ export const login =
 // Logout / Clear Profile
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
+};
+
+//Change Password/ Settings
+export const changePassword = (password, userID) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  console.log(password);
+
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/api/users/${userID}`,
+      { password },
+      config
+    );
+    dispatch({
+      type: CHANGE_PASSWORD,
+      payload: res.data,
+    });
+    dispatch(loadUser());
+    dispatch(setAlert("Successfully changed password", "success", "/settings"));
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, "danger", "/settings"));
+      });
+    }
+  }
 };

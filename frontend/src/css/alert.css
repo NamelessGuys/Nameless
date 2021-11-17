@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #alert h1 {
   font-size: 0.9em;
   font-weight: 100;
@@ -28,10 +28,10 @@ button,
   cursor: pointer;
 }
 #success-box {
-  position: absolute;
+  position: fixed;
   width: 300px;
   height: 300px;
-  left: 35vw;
+  left: 40vw;
   background: linear-gradient(to bottom right, #b0db7d 40%, #99dbb4 100%);
   border-radius: 20px;
   box-shadow: 5px 5px 20px rgba(203, 205, 211, 10);
@@ -39,10 +39,10 @@ button,
   z-index: 1000000000000;
 }
 #error-box {
-  position: absolute;
+  position: fixed;
   width: 300px;
   height: 300px;
-  left: 35vw;
+  left: 40vw;
   background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
   border-radius: 20px;
   box-shadow: 5px 5px 20px rgba(203, 205, 211, 10);
