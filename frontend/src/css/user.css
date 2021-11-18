@@ -124,7 +124,7 @@ input:checked + .slider:before {
   width: 60%;
 }
 
-.change-password input {
+.change-password .change-input {
   padding: 5px 8px;
   font-size: 1rem;
   border-radius: 7px;
@@ -135,7 +135,7 @@ input:checked + .slider:before {
   border: none;
 }
 
-.change-password input:focus {
+.change-password .change-input:focus {
   outline: none;
   box-shadow: 0 0 4px 2.5px var(--primary-color);
 }
@@ -146,12 +146,14 @@ input:checked + .slider:before {
   align-items: center;
 }
 
-.password-btn button {
+.password-btn .btn {
   margin-top: 2rem;
 }
 
 .password-btn .btn:last-child {
   margin-right: 0rem !important;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 @media screen and (max-width: 768px) {
   .settings-img {

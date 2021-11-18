@@ -1,6 +1,5 @@
 const express = require('express');
 const connectDB = require('./config/db');
-// const cors = require('cors');
 
 // Initialise app
 const app = express();
@@ -8,24 +7,17 @@ const app = express();
 connectDB();
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, x-auth-token'
   );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
-
 // Init Middleware
 app.use(express.json({ extended: false }));
-
-// app.use(cors());
-// app.options('*', cors());
 
 app.get('/', (req, res) => res.send('API Running'));
 

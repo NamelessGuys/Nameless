@@ -114,7 +114,7 @@ router.put(
 
     try {
       const user = await User.findOneAndUpdate(
-        { user: req.params.user_id },
+        { _id: req.params.user_id },
         { password: password },
         { new: true }
       );

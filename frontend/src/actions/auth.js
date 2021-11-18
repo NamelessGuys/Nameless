@@ -1,5 +1,5 @@
-import axios from "axios";
-import { setAlert } from "./alert";
+import axios from 'axios';
+import { setAlert } from './alert';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -9,21 +9,17 @@ import {
   LOGIN_FAIL,
   CHANGE_PASSWORD,
   LOGOUT,
-} from "./types";
-import setAuthToken from "../utils/setAuthToken";
+} from './types';
+import setAuthToken from '../utils/setAuthToken';
 
 // Load User
 export const loadUser = () => async (dispatch) => {
-  if (localStorage.getItem("token")) {
-    setAuthToken(localStorage.getItem("token"));
+  if (localStorage.getItem('token')) {
+    setAuthToken(localStorage.getItem('token'));
   }
-  // let token = null;
-  // if (localStorage.getItem('token')) {
-  //   token = localStorage.getItem('token');
-  // }
 
   try {
-    const res = await axios.get("http://localhost:5000/api/auth");
+    const res = await axios.get('http://localhost:5000/api/auth');
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -41,13 +37,13 @@ export const register =
   async (dispatch) => {
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     };
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/users",
+        'http://localhost:5000/api/users',
         { username, email, password, college },
         config
       );
@@ -56,12 +52,12 @@ export const register =
         payload: res.data,
       });
       dispatch(loadUser());
-      dispatch(setAlert("Successfully registered", "success", "/feed"));
+      dispatch(setAlert('Successfully registered', 'success', '/feed'));
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) => {
-          dispatch(setAlert(error.msg, "danger", "/register"));
+          dispatch(setAlert(error.msg, 'danger', '/register'));
         });
       }
 
@@ -77,13 +73,13 @@ export const login =
   async (dispatch) => {
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     };
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth",
+        'http://localhost:5000/api/auth',
         { username, password },
         config
       );
@@ -96,7 +92,7 @@ export const login =
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) =>
-          dispatch(setAlert(error.msg, "danger", "/login"))
+          dispatch(setAlert(error.msg, 'danger', '/login'))
         );
       }
 
@@ -111,15 +107,13 @@ export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
 };
 
-//Change Password/ Settings
+//Change Password / Settings
 export const changePassword = (password, userID) => async (dispatch) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
-
-  console.log(password);
 
   try {
     const res = await axios.put(
@@ -132,12 +126,12 @@ export const changePassword = (password, userID) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(loadUser());
-    dispatch(setAlert("Successfully changed password", "success", "/settings"));
+    dispatch(setAlert('Successfully changed password', 'success', '/settings'));
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, "danger", "/settings"));
+        dispatch(setAlert(error.msg, 'danger', '/settings'));
       });
     }
   }
