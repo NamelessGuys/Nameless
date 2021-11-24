@@ -59,7 +59,10 @@ const Settings = ({
                 checked={showNSFW}
                 onClick={() => {
                   setShowNSFW(!showNSFW);
-                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                  updateSettings(
+                    { showNSFW, blurNSFW, emailNotif },
+                    settings.user.id
+                  );
                 }}
               />
               <span className="slider round"></span>
@@ -73,7 +76,10 @@ const Settings = ({
                 checked={blurNSFW}
                 onClick={() => {
                   setBlurNSFW(!blurNSFW);
-                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                  updateSettings(
+                    { showNSFW, blurNSFW, emailNotif },
+                    settings.user.id
+                  );
                 }}
               />
               <span className="slider round"></span>
@@ -87,7 +93,10 @@ const Settings = ({
                 checked={emailNotif}
                 onClick={() => {
                   setEmailNotif(!emailNotif);
-                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                  updateSettings(
+                    { showNSFW, blurNSFW, emailNotif },
+                    settings.user.id
+                  );
                 }}
               />
               <span className="slider round"></span>
