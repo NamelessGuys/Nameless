@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SettingsImg from '../../img/settings.svg';
 import { setAlert } from '../../actions/alert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changePassword } from '../../actions/auth';
+import { getSettings, updateSettings } from '../../actions/settings';
 import '../../css/user.css';
 
-const Settings = ({ changePassword, setAlert, auth: { user, loading } }) => {
+const Settings = ({
+  changePassword,
+  setAlert,
+  getSettings,
+  updateSettings,
+  auth: { user, loading },
+  settings,
+}) => {
+  useEffect(() => {
+    getSettings();
+  }, [settings]);
+
   const [passwordToggle, setPasswordToggle] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -30,6 +42,10 @@ const Settings = ({ changePassword, setAlert, auth: { user, loading } }) => {
     setFormData({ oldPassword: '', newPassword1: '', newPassword2: '' });
   };
 
+  const [showNSFW, setShowNSFW] = useState(settings.showNSFW);
+  const [blurNSFW, setBlurNSFW] = useState(settings.blurNSFW);
+  const [emailNotif, setEmailNotif] = useState(settings.emailNotif);
+
   return (
     !loading && (
       <div id="settings">
@@ -38,21 +54,42 @@ const Settings = ({ changePassword, setAlert, auth: { user, loading } }) => {
           <div className="setting">
             <p className="lead">Show NSFW posts(I'm over 18)</p>
             <label className="switch">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={showNSFW}
+                onClick={() => {
+                  setShowNSFW(!showNSFW);
+                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                }}
+              />
               <span className="slider round"></span>
             </label>
           </div>
           <div className="setting">
             <p className="lead">Blur NSFW posts</p>
             <label className="switch">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={blurNSFW}
+                onClick={() => {
+                  setBlurNSFW(!blurNSFW);
+                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                }}
+              />
               <span className="slider round"></span>
             </label>
           </div>
           <div className="setting">
             <p className="lead">Email notifications</p>
             <label className="switch">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={emailNotif}
+                onClick={() => {
+                  setEmailNotif(!emailNotif);
+                  updateSettings({ showNSFW, blurNSFW, emailNotif });
+                }}
+              />
               <span className="slider round"></span>
             </label>
           </div>
@@ -124,12 +161,21 @@ const Settings = ({ changePassword, setAlert, auth: { user, loading } }) => {
 
 Settings.propTypes = {
   auth: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired,
   changePassword: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
+  getSettings: PropTypes.func.isRequired,
+  updateSettings: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  settings: state.settings.settings,
 });
 
-export default connect(mapStateToProps, { changePassword, setAlert })(Settings);
+export default connect(mapStateToProps, {
+  changePassword,
+  setAlert,
+  getSettings,
+  updateSettings,
+})(Settings);
