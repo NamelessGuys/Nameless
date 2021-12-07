@@ -5,7 +5,11 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  settings: null,
+  settings: {
+    showNSFW:true,
+    blurNSFW:true,
+    emailNotif:true
+  },
   loading: true,
 };
 

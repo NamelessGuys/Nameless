@@ -28,7 +28,7 @@ export const updateSettings = (settings, userID) => async (dispatch) => {
       'Content-Type': 'application/json',
     },
   };
-
+  console.log(userID);
   try {
     const res = await axios.put(
       `http://localhost:5000/api/settings/${userID}`,

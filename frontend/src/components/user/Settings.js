@@ -34,6 +34,7 @@ const Settings = ({
 
   const onSubmitHandeler = (e) => {
     e.preventDefault();
+    console.log(user)
     if (newPassword1 === newPassword2) {
       changePassword(newPassword1, user._id);
     } else {
