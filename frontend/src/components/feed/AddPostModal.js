@@ -11,7 +11,12 @@ const AddPostModal = () => {
       </div>
       <div className="line"></div>
       <div className="modal-body">
-        <form className="form">
+        <form
+          className="form"
+          action="http://localhost:5000/api/posts"
+          enctype="multipart/form-data"
+          method="POST"
+        >
           <label>
             <input
               className="modal-input"
@@ -19,7 +24,7 @@ const AddPostModal = () => {
               placeholder="Title"
             ></input>
           </label>
-          <label>
+          {/* <label>
             <textarea
               className="modal-input input-large"
               placeholder="Text"
@@ -32,15 +37,16 @@ const AddPostModal = () => {
                 type="text"
                 placeholder="#tag1, #tag2,.... (max 5)"
               ></input>
-            </label>
-            <label>
-              <div className="btn upload-img">
-                <FiUpload />
-                <span> Upload Image</span>
-                <input type="file" className="modal-upload-image" />
-              </div>
-            </label>
-          </div>
+            </label> */}
+          <label>
+            <div className="btn upload-img">
+              <FiUpload />
+              <span> Upload Image</span>
+              <input name="img" type="file" className="modal-upload-image" />
+            </div>
+          </label>
+          <input type="submit" className="btn btn-primary" value="Post" />
+          {/* </div> */}
         </form>
       </div>
       <div className="modal-footer">
