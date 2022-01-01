@@ -1,8 +1,52 @@
-import React from "react";
-import "../../css/feed.css";
-import { FiUpload } from "react-icons/fi";
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../../css/feed.css';
+import { FiUpload } from 'react-icons/fi';
 
 const AddPostModal = () => {
+  // const [formData, setFormData] = useState({
+  //   title: '',
+  //   text: '',
+  //   tags: '',
+  //   nsfw: false,
+  //   image: null,
+  // });
+  // const { title, text, tags, nsfw } = formData;
+
+  // const inputHandle = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
+  // const checkHandle = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     nsfw: !nsfw,
+  //   });
+  // };
+
+  // const imageHandle = (e) => {
+  //   e.preventDefault();
+
+  //   setFormData({
+  //     ...formData,
+  //     image: e.target.files[0],
+  //   });
+  // };
+
+  // const submitHandle = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     axios.post('http://localhost:5000/api/posts', formData).then((res) => {
+  //       console.log(res.data);
+  //     });
+  //   } catch (err) {
+  //     console.log('Error');
+  //   }
+  // };
+
   return (
     <div id="add-post">
       <div className="modal-header">
@@ -14,7 +58,7 @@ const AddPostModal = () => {
         <form
           className="form"
           action="http://localhost:5000/api/posts"
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
           method="POST"
         >
           <label>
@@ -22,12 +66,18 @@ const AddPostModal = () => {
               className="modal-input"
               type="text"
               placeholder="Title"
+              name="title"
+              // value={title}
+              // onChange={(e) => inputHandle(e)}
             ></input>
           </label>
-          {/* <label>
+          <label>
             <textarea
               className="modal-input input-large"
               placeholder="Text"
+              name="text"
+              // value={text}
+              // onChange={(e) => inputHandle(e)}
             ></textarea>
           </label>
           <div className="modal-body-footer">
@@ -36,27 +86,40 @@ const AddPostModal = () => {
                 className="modal-input tag"
                 type="text"
                 placeholder="#tag1, #tag2,.... (max 5)"
+                name="tags"
+                // value={tags}
+                // onChange={(e) => inputHandle(e)}
               ></input>
-            </label> */}
-          <label>
-            <div className="btn upload-img">
-              <FiUpload />
-              <span> Upload Image</span>
-              <input name="img" type="file" className="modal-upload-image" />
-            </div>
-          </label>
-          <input type="submit" className="btn btn-primary" value="Post" />
-          {/* </div> */}
+            </label>
+            <label>
+              <div className="btn upload-img">
+                <FiUpload />
+                <span> Upload Image</span>
+                <input
+                  name="image"
+                  type="file"
+                  className="modal-upload-image"
+                  // onChange={(e) => imageHandle(e)}
+                />
+              </div>
+            </label>
+          </div>
+          <div className="nsfw-check">
+            <label htmlFor="nsfw">
+              <input
+                type="checkbox"
+                name="nsfw"
+                className="nsfw-checkbox"
+                // value={nsfw}
+                // onChange={(e) => checkHandle(e)}
+              />
+              NSFW(18+)
+            </label>
+          </div>
+          <button type="submit" className="btn btn-success">
+            Add Post
+          </button>
         </form>
-      </div>
-      <div className="modal-footer">
-        <div className="nsfw-check">
-          <label htmlFor="nsfw">
-            <input type="checkbox" name="nsfw" className="nsfw-checkbox" />
-            NSFW(18+)
-          </label>
-        </div>
-        <button className="btn btn-success">Add Post</button>
       </div>
     </div>
   );
