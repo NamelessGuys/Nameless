@@ -12,9 +12,12 @@ const PostSchema = new mongoose.Schema({
   text: {
     type: String,
   },
+  // image: {
+  //   data: Buffer,
+  //   contentType: String,
+  // },
   image: {
-    data: Buffer,
-    contentType: String,
+    type: String,
   },
   nsfw: {
     type: Boolean,

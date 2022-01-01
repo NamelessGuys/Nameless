@@ -4,48 +4,54 @@ import '../../css/feed.css';
 import { FiUpload } from 'react-icons/fi';
 
 const AddPostModal = () => {
-  // const [formData, setFormData] = useState({
-  //   title: '',
-  //   text: '',
-  //   tags: '',
-  //   nsfw: false,
-  //   image: null,
-  // });
-  // const { title, text, tags, nsfw } = formData;
+  const [formData, setFormData] = useState({
+    title: '',
+    text: '',
+    tags: '',
+    nsfw: false,
+    image: null,
+  });
+  const { title, text, tags, nsfw } = formData;
 
-  // const inputHandle = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
+  const inputHandle = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  // const checkHandle = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     nsfw: !nsfw,
-  //   });
-  // };
+  const checkHandle = (e) => {
+    setFormData({
+      ...formData,
+      nsfw: !nsfw,
+    });
+  };
 
-  // const imageHandle = (e) => {
-  //   e.preventDefault();
+  const imageHandle = (e) => {
+    e.preventDefault();
 
-  //   setFormData({
-  //     ...formData,
-  //     image: e.target.files[0],
-  //   });
-  // };
+    setFormData({
+      ...formData,
+      image: e.target.files[0],
+    });
+  };
 
-  // const submitHandle = (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     axios.post('http://localhost:5000/api/posts', formData).then((res) => {
-  //       console.log(res.data);
-  //     });
-  //   } catch (err) {
-  //     console.log('Error');
-  //   }
-  // };
+  const submitHandle = (e) => {
+    e.preventDefault();
+    const postForm = new FormData();
+
+    for (const [key, value] of Object.entries(formData)) {
+      postForm.append(key, value);
+    }
+
+    try {
+      axios.post('http://localhost:5000/api/posts', postForm).then((res) => {
+        console.log(res.data);
+      });
+    } catch (err) {
+      console.log('Error');
+    }
+  };
 
   return (
     <div id="add-post">
@@ -67,8 +73,8 @@ const AddPostModal = () => {
               type="text"
               placeholder="Title"
               name="title"
-              // value={title}
-              // onChange={(e) => inputHandle(e)}
+              value={title}
+              onChange={(e) => inputHandle(e)}
             ></input>
           </label>
           <label>
@@ -76,8 +82,8 @@ const AddPostModal = () => {
               className="modal-input input-large"
               placeholder="Text"
               name="text"
-              // value={text}
-              // onChange={(e) => inputHandle(e)}
+              value={text}
+              onChange={(e) => inputHandle(e)}
             ></textarea>
           </label>
           <div className="modal-body-footer">
@@ -87,8 +93,8 @@ const AddPostModal = () => {
                 type="text"
                 placeholder="#tag1, #tag2,.... (max 5)"
                 name="tags"
-                // value={tags}
-                // onChange={(e) => inputHandle(e)}
+                value={tags}
+                onChange={(e) => inputHandle(e)}
               ></input>
             </label>
             <label>
@@ -99,7 +105,7 @@ const AddPostModal = () => {
                   name="image"
                   type="file"
                   className="modal-upload-image"
-                  // onChange={(e) => imageHandle(e)}
+                  onChange={(e) => imageHandle(e)}
                 />
               </div>
             </label>
@@ -110,13 +116,17 @@ const AddPostModal = () => {
                 type="checkbox"
                 name="nsfw"
                 className="nsfw-checkbox"
-                // value={nsfw}
-                // onChange={(e) => checkHandle(e)}
+                value={nsfw}
+                onChange={(e) => checkHandle(e)}
               />
               NSFW(18+)
             </label>
           </div>
-          <button type="submit" className="btn btn-success">
+          <button
+            type="submit"
+            className="btn btn-success"
+            onClick={(e) => submitHandle(e)}
+          >
             Add Post
           </button>
         </form>
