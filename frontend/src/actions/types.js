@@ -11,3 +11,5 @@ export const LOGOUT = "LOGOUT";
 export const UPDATE_SETTINGS = "UPDATE_SETTINGS";
 export const GET_SETTINGS = "GET_SETTINGS";
 export const SETTINGS_ERROR = "SETTINGS_ERROR";
+export const FETCH_POSTS = "FETCH_POSTS";
+export const POSTS_ERROR = "POSTS_ERROR";

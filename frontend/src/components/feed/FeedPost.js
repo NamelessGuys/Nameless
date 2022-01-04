@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { GiThumbDown, GiThumbUp } from 'react-icons/gi';
-import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { GiThumbDown, GiThumbUp } from "react-icons/gi";
+import { FaComment, FaFlag, FaCopy } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const FeedPost = () => {
+const FeedPost = ({ post }) => {
   const [isOptionVisible, setIsOptionVisible] = useState(false);
 
   return (
     <div className="feed-post bg-graydark">
       <div className="post-head">
-        <h3>Lorem Ipsum</h3>
+        <h3>{post.title}</h3>
         <div className="post-info">
           <div onClick={() => setIsOptionVisible(!isOptionVisible)}>
             <input type="checkbox" className="toggler" />
@@ -17,17 +17,17 @@ const FeedPost = () => {
               <div></div>
             </div>
           </div>
-          <div className={`post-actions ${isOptionVisible ? 'show' : ''}`}>
+          <div className={`post-actions ${isOptionVisible ? "show" : ""}`}>
             <div className="post-action">
               <i>
                 <FaCopy />
-              </i>{' '}
+              </i>{" "}
               <h4>Copy Link</h4>
             </div>
             <div className="post-action">
               <i>
                 <FaFlag />
-              </i>{' '}
+              </i>{" "}
               <h4>Report</h4>
             </div>
           </div>
@@ -35,10 +35,7 @@ const FeedPost = () => {
       </div>
       <Link to="/post">
         <div className="post-body">
-          <div className="post-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
-            architecto!
-          </div>
+          <div className="post-text">{post.text}</div>
           <div className="post-tags">
             <div className="tags">#chill #meme #fun</div>
             <div className="college-name">DTU</div>
@@ -68,5 +65,7 @@ const FeedPost = () => {
     </div>
   );
 };
-
+FeedPost.defaultProps = {
+  showActions: true,
+};
 export default FeedPost;
