@@ -6,6 +6,7 @@ const User = require('../../models/User');
 const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
+const model = require('../../NSFW_Model/nsfw_model.js');
 
 // const upload = multer({ dest: 'public/files' });
 
@@ -56,10 +57,13 @@ router.post(
         image: req.file.filename,
         user: req.user.id,
       });
-      console.log(newPost);
-
-      const post = await newPost.save();
-      console.log(post);
+      const nsfw = model(req.file.filename);
+      if(nsfw)
+      {
+        return res.status(400).json({msg:'NSFW!!!'})
+      }
+      // const post = await newPost.save();
+      // console.log(post);
       res.json(post);
     } catch (err) {
       console.error(err.message);
