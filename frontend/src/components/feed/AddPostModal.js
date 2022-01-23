@@ -75,6 +75,7 @@ const AddPostModal = () => {
               name="title"
               value={title}
               onChange={(e) => inputHandle(e)}
+              required
             ></input>
           </label>
           <label>
