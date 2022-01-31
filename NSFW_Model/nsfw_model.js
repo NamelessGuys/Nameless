@@ -1,4 +1,6 @@
 const tf = require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
+const {Image} = require('canvas');
 const path = require('path');
 const NSFW_CLASSES = 
 {
@@ -8,7 +10,7 @@ const NSFW_CLASSES =
     3: 'Porn',
     4: 'Sexy'
 }
-async function PredictNSFW(model) 
+async function PredictNSFW(model,img) 
 
 {const tensor = tf.browser.fromPixels(img,3);
 
@@ -30,7 +32,7 @@ return result;
 }
 
 function showPredictionResults(prediction)
-{   
+{   console.log(prediction);
     if(prediction[1]>0.75 || prediction[3]>0.75 || prediction[4]>0.9)
     {
         return true;
@@ -40,16 +42,36 @@ function showPredictionResults(prediction)
 
 async function testImage(src)
 {
-console.log(path.resolve('models/web_model/model.json'));
-// const model = await tf.loadGraphModel(path.resolve('models/web_model/model.json'));
-const img = new Image();
-img.crossOrigin = "anonymous";
-let ans=false;
-console.log(path.resolve(src));
-img.src = path.resolve(src);
-// img.onload = await PredictNSFW(model).then(res => {ans=res});
+console.log('Hi');
+let model;
+try{
+model = await tf.loadGraphModel('file://NSFW_Model/models/webModel/model.json');
+}
+catch(err)
+{
+    console.log(err);
+}
+if(!model)
+{
+    throw new Error('No model found');
+}
+image = await load(path.resolve(src));
+console.log(image);
+await PredictNSFW(model,image).then(res => {ans=res});
 
 return ans;
 }
 
+function load(url){
+    return new Promise((resolve, reject) => {
+      const im = new Image()
+          im.crossOrigin = 'anonymous'
+          im.src = url;
+          im.onload = () => {
+            resolve(im)
+          }
+     })
+  }
+  
+  
 module.exports = testImage;
