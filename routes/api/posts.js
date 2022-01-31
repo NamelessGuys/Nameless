@@ -6,7 +6,7 @@ const User = require('../../models/User');
 const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
-const model = require('../../NSFW_Model/nsfw_model.js');
+// const model = require('../../NSFW_Model/nsfw_model.js');
 
 // const upload = multer({ dest: 'public/files' });
 
@@ -50,21 +50,27 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select('-password');
-      const newPost = new Post({
+
+      let newPostObj = {
         title: req.body.title,
         text: req.body.text,
         nsfw: req.body.nsfw,
-        image: req.file.filename,
         user: req.user.id,
-      });
-      const nsfw = model(req.file.filename);
-      if(nsfw)
-      {
-        return res.status(400).json({msg:'NSFW!!!'})
       }
-      // const post = await newPost.save();
-      // console.log(post);
-      res.json(post);
+
+      if(req.file!=undefined){
+        newPostObj = {...newPostObj, image: req.file.filename}
+      }
+      const newPost = new Post(newPostObj);
+      
+      // const nsfw = model(req.file.filename);
+      // if(nsfw)
+      // {
+      //   return res.status(400).json({msg:'NSFW!!!'})
+      // }
+      const post = await newPost.save();
+      console.log(post);
+      return res.json(post);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');

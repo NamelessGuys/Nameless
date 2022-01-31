@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import '../../css/feed.css';
 import { FiUpload } from 'react-icons/fi';
+import { addPost } from '../../actions/posts';
+import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
-const AddPostModal = () => {
+
+const AddPostModal = ({addPost}) => {
   const [formData, setFormData] = useState({
     title: '',
     text: '',
@@ -44,13 +47,8 @@ const AddPostModal = () => {
       postForm.append(key, value);
     }
 
-    try {
-      axios.post('http://localhost:5000/api/posts', postForm).then((res) => {
-        console.log(res.data);
-      });
-    } catch (err) {
-      console.log('Error');
-    }
+    addPost(postForm);
+
   };
 
   return (
@@ -63,9 +61,9 @@ const AddPostModal = () => {
       <div className="modal-body">
         <form
           className="form"
-          action="http://localhost:5000/api/posts"
+          // action="http://localhost:5000/api/posts"
           encType="multipart/form-data"
-          method="POST"
+          // method="POST"
         >
           <label>
             <input
@@ -136,4 +134,8 @@ const AddPostModal = () => {
   );
 };
 
-export default AddPostModal;
+AddPostModal.propTypes = {
+  addPost: PropTypes.func.isRequired,
+}
+
+export default connect(null,{addPost})(AddPostModal);

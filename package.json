@@ -4,7 +4,6 @@
   "description": "Nameless Social Media Platform for anonymous posting and texting increasing inter-college interaction",
   "main": "server.js",
   "dependencies": {
-    "@tensorflow/tfjs-node": "^3.13.0",
     "bcryptjs": "^2.4.3",
     "canvas": "^2.9.0",
     "config": "^3.3.6",

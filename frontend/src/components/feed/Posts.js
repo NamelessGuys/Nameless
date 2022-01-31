@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { setAlert } from "../../actions/alert";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -8,11 +8,11 @@ import FeedPost from "./FeedPost";
 const Posts = ({ setAlert, fetchPosts, posts }) => {
   useEffect(() => {
     fetchPosts();
-  }, [posts]);
+  }, [fetchPosts]);
   return (
     <div id="posts">
       {posts.map((post) => (
-        <FeedPost key={post.id} post={post} />
+        <FeedPost key={post._id} post={post} />
       ))}
     </div>
   );
