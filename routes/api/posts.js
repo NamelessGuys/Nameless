@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
+const Tag = require('../../models/Tag');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
+const { off } = require('../../models/Profile');
 // const model = require('../../NSFW_Model/nsfw_model.js');
 
 // const upload = multer({ dest: 'public/files' });
@@ -50,12 +52,32 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select('-password');
+      
+      let tags = req.body.tags.split(",");
+      tags = tags.map(tag => {
+        return tag.trim().substr(1);
+      })
+      tags = tags.filter(tag => tag!=='')
+      if(tags.length===1 && tags[0]===''){
+        tags = [];
+      }
+   
+      
+
+      const tagSet = new Set([...tags]);
+
+      tags = Array.from(tagSet);
+
+      if(tags.length>5){
+        return res.status(404).json({ msg: 'Can not add more than 5 tags' });
+      }
 
       let newPostObj = {
         title: req.body.title,
         text: req.body.text,
         nsfw: req.body.nsfw,
         user: req.user.id,
+        college: user.college,
       }
 
       if(req.file!=undefined){
@@ -69,7 +91,28 @@ router.post(
       //   return res.status(400).json({msg:'NSFW!!!'})
       // }
       const post = await newPost.save();
-      console.log(post);
+
+      tags.forEach(async (tag)=> {
+        let result = await Tag.find({"name": tag});
+
+        if(result.length>0){
+          result.unshift(post._id)
+          console.log(13);
+        }else {
+          const tagObj = new Tag({
+            name: tag,
+            posts: [
+              {
+                post: post._id,
+              }
+            ]
+          })
+          console.log(12);
+          console.log(tagObj);
+          await tagObj.save();
+        }
+      })
+      // console.log(post);
       return res.json(post);
     } catch (err) {
       console.error(err.message);
@@ -83,7 +126,7 @@ router.post(
 // @access    Private
 router.get('/', auth, async (req, res) => {
   try {
-    const posts = await Post.find().sort({ date: -1 });
+    const posts = await Post.find().sort({date: -1});
     res.json(posts);
   } catch (err) {
     console.error(err.message);
@@ -91,6 +134,42 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// @route     GET api/posts/college/:college_name
+// @desc      Get all posts by college
+// @access    Private
+
+router.get('/college/:college_name', auth, async(req,res)=>{
+
+  try {
+    const posts = await Post.find({'college':req.params.college_name}).sort({date: -1});
+    res.json(posts);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+})
+
+// @route     GET api/posts/nsfw/:isNsfw
+// @desc      Get all posts by nsfw
+// @access    Private
+
+router.get('/nsfw/:isNsfw', auth, async(req,res)=>{
+
+  try {
+    let posts;
+    if(req.params.isNsfw===true || req.params.isNsfw==="true"){
+      posts = await Post.find({ "nsfw": { "$in": ["true",true] } })
+
+    }else {
+      posts = await Post.find({ "nsfw": { "$in": ["false",false] } })
+    }
+    //  posts = await Post.find({'nsfw':req.params.college_name}).sort({date: -1});
+    res.json(posts);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+})
 // @route     GET api/posts/:id
 // @desc      Get post by id
 // @access    Private

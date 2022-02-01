@@ -16,6 +16,9 @@ const PostSchema = new mongoose.Schema({
   //   data: Buffer,
   //   contentType: String,
   // },
+  college: {
+    type: String,
+  },
   image: {
     type: String,
   },
