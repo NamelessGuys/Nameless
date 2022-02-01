@@ -311,7 +311,7 @@ router.put('/report/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
-    // Check if the post has already been liked
+    // Check if the post has already been reported
     if (
       post.report.filter((report) => report.user.toString() === req.user.id)
         .length > 0
