@@ -13,17 +13,17 @@ import PrivateRoute from "./PrivateRoute";
 
 const Routes = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <Alert />
       <Switch>
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/profile/:id" component={Profile} />
-        <PrivateRoute exact path="/feed" component={Feed} />
-        <PrivateRoute exact path="/posts/:id" component={Post} />
-        <PrivateRoute exact path="/settings" component={Settings} />
-        <PrivateRoute exact path="/contact" component={Contact} />
-        <PrivateRoute exact path="/dashboard" component={Profile} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/profile/:id' component={Profile} />
+        <PrivateRoute exact path='/feed' component={Feed} />
+        <PrivateRoute exact path='/posts/:id' component={Post} />
+        <PrivateRoute exact path='/settings' component={Settings} />
+        <PrivateRoute exact path='/contact' component={Contact} />
+        <PrivateRoute exact path='/dashboard' component={Profile} />
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -319,7 +319,11 @@ input.nsfw-checkbox {
   font-style: italic;
   color: var(--light-color);
 }
-
+.tag {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
 .college-name {
   background-color: var(--primary-color);
   border-radius: 50px;
