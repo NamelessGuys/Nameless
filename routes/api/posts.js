@@ -84,12 +84,14 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     // {
     //   return res.status(400).json({msg:'NSFW!!!'})
     // }
+
     const post = await newPost.save();
 
     tags.forEach(async (tag) => {
-      let result = await Tag.find({ name: tag });
+      const result = await Tag.find({ name: tag });
       if (result.length > 0) {
-        result.unshift(post._id);
+        result[0].posts.unshift({ post: post._id });
+        await result[0].save();
       } else {
         const tagObj = new Tag({
           name: tag,
@@ -102,7 +104,6 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
         await tagObj.save();
       }
     });
-    // console.log(post);
     return res.json(post);
   } catch (err) {
     console.error(err.message);
