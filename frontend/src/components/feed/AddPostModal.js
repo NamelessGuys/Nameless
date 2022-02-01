@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import '../../css/feed.css';
 import { FiUpload } from 'react-icons/fi';
 import { addPost } from '../../actions/posts';
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-
-const AddPostModal = ({addPost}) => {
+const AddPostModal = ({ addPost }) => {
   const [formData, setFormData] = useState({
     title: '',
     text: '',
@@ -48,7 +47,6 @@ const AddPostModal = ({addPost}) => {
     }
 
     addPost(postForm);
-
   };
 
   return (
@@ -59,12 +57,7 @@ const AddPostModal = ({addPost}) => {
       </div>
       <div className="line"></div>
       <div className="modal-body">
-        <form
-          className="form"
-          // action="http://localhost:5000/api/posts"
-          encType="multipart/form-data"
-          // method="POST"
-        >
+        <form className="form" encType="multipart/form-data">
           <label>
             <input
               className="modal-input"
@@ -136,6 +129,6 @@ const AddPostModal = ({addPost}) => {
 
 AddPostModal.propTypes = {
   addPost: PropTypes.func.isRequired,
-}
+};
 
-export default connect(null,{addPost})(AddPostModal);
+export default connect(null, { addPost })(AddPostModal);

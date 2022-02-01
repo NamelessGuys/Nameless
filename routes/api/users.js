@@ -54,12 +54,8 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
-      // Get id of the user
-      const currUser = await User.findOne({ username });
-      const { id } = currUser;
-
       // Instantiate settings for registering user
-      const settings = new Settings({ user: id });
+      const settings = new Settings({ user: user._id });
       await settings.save();
 
       // Return jsonwebtoken

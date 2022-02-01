@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { setAlert } from "../../actions/alert";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { fetchPosts } from "../../actions/posts";
-import FeedPost from "./FeedPost";
+import React, { useEffect } from 'react';
+import { setAlert } from '../../actions/alert';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fetchPosts } from '../../actions/posts';
+import FeedPost from './FeedPost';
 
 const Posts = ({ setAlert, fetchPosts, posts }) => {
   useEffect(() => {
