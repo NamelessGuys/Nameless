@@ -59,7 +59,6 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
-
       BASE_URL = 'http://localhost:5000';
       let token = await new Token({
         userId: user._id,
@@ -72,7 +71,6 @@ router.post(
       // Get id of the user
       const currUser = await User.findOne({ username });
       const { id } = currUser;
-
 
       // Instantiate settings for registering user
       const settings = new Settings({ user: user._id });
@@ -112,11 +110,12 @@ router.get('/verify/:id/:token', async (req, res) => {
     });
     if (!token) return res.status(400).send('Invalid link');
 
-    await User.updateOne({ _id: user._id, verified: true });
+    await User.findOneAndUpdate({ _id: user._id }, { verified: true });
     await Token.findByIdAndRemove(token._id);
 
     res.send('email verified sucessfully');
   } catch (error) {
+    console.log(error);
     res.status(400).send('An error occured');
   }
 });
