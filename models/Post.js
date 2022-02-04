@@ -12,10 +12,6 @@ const PostSchema = new mongoose.Schema({
   text: {
     type: String,
   },
-  // image: {
-  //   data: Buffer,
-  //   contentType: String,
-  // },
   college: {
     type: String,
   },
@@ -26,13 +22,7 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  tags: [
-    {
-      tag: {
-        type: String,
-      },
-    },
-  ],
+  tags: [String],
   report: [
     {
       user: {

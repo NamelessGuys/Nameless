@@ -1,22 +1,26 @@
-import { FETCH_POSTS, POSTS_ERROR, ADD_POST } from "./types";
+import {
+  FETCH_POSTS,
+  POSTS_ERROR,
+  ADD_POST,
+  POST_ERROR,
+  SET_CURRENT_POST,
+  ADD_COMMENT,
+} from "./types";
 import axios from "axios";
 import { setAlert } from "./alert";
 
-export const addPost = (postForm) => async(dispatch) =>{
-  
-
-    try {
-      axios.post('http://localhost:5000/api/posts', postForm).then((res) => {
-        // console.log(res.data);
-        dispatch({
-          type: ADD_POST,
-          payload: res.data,
-        })
+export const addPost = (postForm) => async (dispatch) => {
+  try {
+    axios.post("http://localhost:5000/api/posts", postForm).then((res) => {
+      dispatch({
+        type: ADD_POST,
+        payload: res.data,
       });
-    } catch (err) {
-      console.log('Error');
-    }
-}
+    });
+  } catch (err) {
+    console.log("Error");
+  }
+};
 
 export const fetchPosts = () => async (dispatch) => {
   try {
@@ -33,6 +37,26 @@ export const fetchPosts = () => async (dispatch) => {
     if (errors) {
       errors.forEach((error) => {
         dispatch(setAlert(error.msg, "danger", "/feed"));
+      });
+    }
+  }
+};
+
+export const setCurrentPost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+    dispatch({
+      type: SET_CURRENT_POST,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+    });
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, "danger", "/post"));
       });
     }
   }

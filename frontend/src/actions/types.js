@@ -14,3 +14,7 @@ export const SETTINGS_ERROR = "SETTINGS_ERROR";
 export const FETCH_POSTS = "FETCH_POSTS";
 export const POSTS_ERROR = "POSTS_ERROR";
 export const ADD_POST = "ADD_POST";
+export const GET_POST = "GET_POST";
+export const SET_CURRENT_POST = "SET_CURRENT_POST";
+export const ADD_COMMENT = "ADD_COMMENT";
+export const POST_ERROR = "POST_ERROR";

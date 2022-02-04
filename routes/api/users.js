@@ -59,6 +59,7 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
+
       BASE_URL = 'http://localhost:5000';
       let token = await new Token({
         userId: user._id,
@@ -72,8 +73,9 @@ router.post(
       const currUser = await User.findOne({ username });
       const { id } = currUser;
 
+
       // Instantiate settings for registering user
-      const settings = new Settings({ user: id });
+      const settings = new Settings({ user: user._id });
       await settings.save();
 
       // Return jsonwebtoken
