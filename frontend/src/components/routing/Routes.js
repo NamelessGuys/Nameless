@@ -24,6 +24,7 @@ const Routes = () => {
         <PrivateRoute exact path='/settings' component={Settings} />
         <PrivateRoute exact path='/contact' component={Contact} />
         <PrivateRoute exact path='/dashboard' component={Profile} />
+
         <Route component={NotFound} />
       </Switch>
     </div>

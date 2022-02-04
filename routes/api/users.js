@@ -5,8 +5,13 @@ const { check, validationResult } = require('express-validator');
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../../models/User');
+const { User, validate } = require('../../models/User');
 const Settings = require('../../models/Settings');
+const nodemailer = require('nodemailer');
+
+const sendEmail = require('../../utils/email');
+const Token = require('../../models/Token');
+const crypto = require('crypto');
 
 // @route     POST api/users
 // @desc      Register user
@@ -54,6 +59,21 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
+
+      BASE_URL = 'http://localhost:5000';
+      let token = await new Token({
+        userId: user._id,
+        token: crypto.randomBytes(32).toString('hex'),
+      }).save();
+
+      const message = `${BASE_URL}/api/users/verify/${user.id}/${token.token}`;
+      await sendEmail(user.email, 'Verify Email', message);
+
+      // Get id of the user
+      const currUser = await User.findOne({ username });
+      const { id } = currUser;
+
+
       // Instantiate settings for registering user
       const settings = new Settings({ user: user._id });
       await settings.save();
@@ -79,6 +99,27 @@ router.post(
     }
   }
 );
+
+router.get('/verify/:id/:token', async (req, res) => {
+  try {
+    console.log('entered');
+    const user = await User.findOne({ _id: req.params.id });
+    if (!user) return res.status(400).send('Invalid link');
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    if (!token) return res.status(400).send('Invalid link');
+
+    await User.updateOne({ _id: user._id, verified: true });
+    await Token.findByIdAndRemove(token._id);
+
+    res.send('email verified sucessfully');
+  } catch (error) {
+    res.status(400).send('An error occured');
+  }
+});
 
 // @route     PUT api/users/:user_id
 // @desc      Update user password
