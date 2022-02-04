@@ -65,7 +65,7 @@ router.post(
         token: crypto.randomBytes(32).toString('hex'),
       }).save();
 
-      const message = `${BASE_URL}/users/verify/${user.id}/${token.token}`;
+      const message = `${BASE_URL}/api/users/verify/${user.id}/${token.token}`;
       await sendEmail(user.email, 'Verify Email', message);
 
       // Get id of the user
@@ -100,7 +100,7 @@ router.post(
 
 router.get('/verify/:id/:token', async (req, res) => {
   try {
-    console.log(entered);
+    console.log('entered');
     const user = await User.findOne({ _id: req.params.id });
     if (!user) return res.status(400).send('Invalid link');
 
