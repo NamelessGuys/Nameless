@@ -32,7 +32,7 @@ Comments.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
   post: state.posts.post,
 });
 

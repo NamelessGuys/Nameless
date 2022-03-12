@@ -233,7 +233,7 @@ input.nsfw-checkbox {
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -293,6 +293,17 @@ input.nsfw-checkbox {
   margin-bottom: 0.5rem;
 }
 
+.post-action button {
+  background-color: transparent;
+  border: none;
+}
+
+.post-action h4 {
+  background-color: var(--graylight-color) !important;
+  color: var(--light-color) !important;
+  box-shadow: none;
+}
+
 .post-action i {
   margin-right: 1rem;
 }
@@ -332,7 +343,7 @@ input.nsfw-checkbox {
 
 .post-img {
   height: 450px !important;
-  background: url("../img/service-2.PNG") no-repeat center center/cover;
+  background: url('../img/service-2.PNG') no-repeat center center/cover;
 }
 
 .post-footer {
@@ -480,6 +491,10 @@ input.nsfw-checkbox {
 .comment-avatar {
   flex: 1;
   margin-right: 0.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--white-color);
 }
 
 .comment-avatar img {
