@@ -1,10 +1,9 @@
 import {
   FETCH_POSTS,
   POSTS_ERROR,
-  ADD_POST,
   POST_ERROR,
-  SET_CURRENT_POST,
   ADD_COMMENT,
+  FETCH_POST,
 } from './types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -42,11 +41,11 @@ export const fetchPosts = () => async (dispatch) => {
   }
 };
 
-export const setCurrentPost = (id) => async (dispatch) => {
+export const fetchPost = (id) => async (dispatch) => {
   try {
     const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
     dispatch({
-      type: SET_CURRENT_POST,
+      type: FETCH_POST,
       payload: res.data,
     });
   } catch (err) {
@@ -56,7 +55,7 @@ export const setCurrentPost = (id) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/post'));
+        dispatch(setAlert(error.msg, 'danger', '/feed'));
       });
     }
   }

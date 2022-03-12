@@ -1,10 +1,9 @@
 import {
   POSTS_ERROR,
   FETCH_POSTS,
-  ADD_POST,
+  FETCH_POST,
   ADD_COMMENT,
   POST_ERROR,
-  SET_CURRENT_POST,
 } from '../actions/types';
 
 const initialState = {
@@ -23,7 +22,7 @@ export default function (state = initialState, action) {
     case POSTS_ERROR:
       return { ...state, loading: false, posts: [], post: null };
 
-    case SET_CURRENT_POST:
+    case FETCH_POST:
       return { ...state, loading: false, post: payload };
     case ADD_COMMENT:
       return { ...state, loading: false, post: [payload, ...state.post] };

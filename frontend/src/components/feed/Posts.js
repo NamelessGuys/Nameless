@@ -8,7 +8,7 @@ import FeedPost from './FeedPost';
 const Posts = ({ setAlert, fetchPosts, posts }) => {
   useEffect(() => {
     fetchPosts();
-  }, [posts]);
+  }, [posts, fetchPosts]);
   return (
     <div id="posts">
       {posts.map((post) => (

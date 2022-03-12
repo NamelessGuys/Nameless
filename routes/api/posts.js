@@ -7,7 +7,6 @@ const { User } = require('../../models/User');
 const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
-const { off } = require('../../models/Profile');
 // const model = require('../../NSFW_Model/nsfw_model.js');
 
 // Multer Configurations
