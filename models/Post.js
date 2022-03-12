@@ -57,6 +57,16 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      username: {
+        type: String,
+      },
+      avatar: {
+        type: String,
+      },
+      date: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
   date: {

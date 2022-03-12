@@ -1,22 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Comment = () => {
+const Comment = ({ comment, postId }) => {
   return (
     <div className="single-comment">
       <div className="comment-avatar">
-        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" />
+        <img src={comment.avatar} alt="User" />
       </div>
       <div className="comment-content">
         <div className="comment-user">
-          <h4>John Doe</h4>
+          <h4>{comment.username}</h4>
         </div>
-        <div className="comment-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          doloremque ut natus, maiores velit ea magni placeat,
-        </div>
+        <div className="comment-text">{comment.text}</div>
       </div>
     </div>
   );
+};
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+  postId: PropTypes.string.isRequired,
 };
 
 export default Comment;
