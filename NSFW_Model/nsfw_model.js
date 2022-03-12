@@ -1,77 +1,71 @@
-// const tf = require('@tensorflow/tfjs');
-// require('@tensorflow/tfjs-node');
-// const {Image} = require('canvas');
-// const path = require('path');
-// const NSFW_CLASSES = 
-// {
-//     0: 'Drawing',
-//     1: 'Hentai',
-//     2: 'Neutral',
-//     3: 'Porn',
-//     4: 'Sexy'
-// }
-// async function PredictNSFW(model,img) 
+const tf = require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
+const { Image } = require('canvas');
+const fs = require('fs');
+const jpeg = require('jpeg-js');
+const path = require('path');
 
-// {const tensor = tf.browser.fromPixels(img,3);
+const NSFW_CLASSES = {
+  0: 'Drawing',
+  1: 'Hentai',
+  2: 'Neutral',
+  3: 'Porn',
+  4: 'Sexy',
+};
 
-//     console.log(tensor.data());
-//     const normalized = tensor.toFloat().div(tf.scalar(255))
+const convert = async (img) => {
+  var jpg = fs.readFileSync(img);
+  const image = await jpeg.decode(jpg, { useTArray: true });
 
-// let resized = normalized;
-// if(tensor.shape[0]!==224 || tensor.shape[1]!==224)
-// {
-//     resized = tf.image.resizeBilinear(normalized,[224,224],true);
-// }
-// const tensor2 =resized.reshape([1,224,224,3]);
-// const prediction = model.predict(tensor2);
-// let predictionValues;
-// await prediction.data().then(res => {predictionValues=res});
+  const numChannels = 3;
+  const numPixels = image.width * image.height;
+  const values = new Int32Array(numPixels * numChannels);
 
-// const result = showPredictionResults(predictionValues);
-// return result;
-// }
+  for (let i = 0; i < numPixels; i++)
+    for (let c = 0; c < numChannels; ++c)
+      values[i * numChannels + c] = image.data[i * 4 + c];
 
-// function showPredictionResults(prediction)
-// {   console.log(prediction);
-//     if(prediction[1]>0.75 || prediction[3]>0.75 || prediction[4]>0.9)
-//     {
-//         return true;
-//     }
-//     return false;
-// }
+  return tf.tensor3d(values, [image.height, image.width, numChannels], 'int32');
+};
 
-// async function testImage(src)
-// {
-// console.log('Hi');
-// let model;
-// try{
-// model = await tf.loadGraphModel('file://NSFW_Model/models/webModel/model.json');
-// }
-// catch(err)
-// {
-//     console.log(err);
-// }
-// if(!model)
-// {
-//     throw new Error('No model found');
-// }
-// image = await load(path.resolve(src));
-// console.log(image);
-// await PredictNSFW(model,image).then(res => {ans=res});
+async function PredictNSFW(model, filebuffer) {
+  if (!filebuffer) {
+    console.log(filebuffer);
+  } else {
+    const tensor = await convert(filebuffer.path);
+    const normalized = tensor.toFloat().div(tf.scalar(255));
 
-// return ans;
-// }
+    let resized = normalized;
+    if (tensor.shape[0] !== 224 || tensor.shape[1] !== 224) {
+      resized = tf.image.resizeBilinear(normalized, [224, 224], true);
+    }
+    const tensor2 = resized.reshape([1, 224, 224, 3]);
+    const prediction = await model.predict(tensor2);
+    const pred = prediction.arraySync();
+    if (pred[0][1] > 0.75 || pred[0][3] > 0.75 || pred[0][4] > 0.9) {
+      return true;
+    }
+    return false;
+  }
+}
 
-// function load(url){
-//     return new Promise((resolve, reject) => {
-//       const im = new Image()
-//           im.crossOrigin = 'anonymous'
-//           im.src = url;
-//           im.onload = () => {
-//             resolve(im)
-//           }
-//      })
-//   }
-  
-  
-// module.exports = testImage;
+async function testImage(filebuffer) {
+  let model;
+  try {
+    model = await tf.loadGraphModel(
+      'file://NSFW_Model/models/webModel/model.json'
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  if (!model) {
+    throw new Error('No model found');
+  }
+  await PredictNSFW(model, filebuffer).then((res) => {
+    ans = res;
+  });
+
+  return ans;
+}
+
+module.exports = testImage;

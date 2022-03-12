@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { GiThumbDown, GiThumbUp } from 'react-icons/gi';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchPost } from '../../actions/posts';
+import { fetchPost, upvotePost, downvotePost } from '../../actions/posts';
 import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
 import Comments from './Comments';
 import '../../css/feed.css';
 
-const Post = ({ posts: { post, loading }, match, fetchPost }) => {
+const Post = ({
+  posts: { post, loading },
+  match,
+  fetchPost,
+  upvotePost,
+  downvotePost,
+}) => {
   useEffect(() => {
     fetchPost(match.params.id);
   }, [match.params.id, fetchPost]);
@@ -57,11 +63,11 @@ const Post = ({ posts: { post, loading }, match, fetchPost }) => {
         </div>
         <div className="post-footer">
           <div className="post-vote">
-            <i>
+            <i onClick={() => upvotePost(match.params.id)}>
               <GiThumbUp />
             </i>
             <p className="vote-count">{String(post.upvotes.length)}</p>
-            <i>
+            <i onClick={() => downvotePost(match.params.id)}>
               <GiThumbDown />
             </i>
           </div>
@@ -80,10 +86,16 @@ const Post = ({ posts: { post, loading }, match, fetchPost }) => {
 Post.propTypes = {
   post: PropTypes.object.isRequired,
   setCurrentPost: PropTypes.func.isRequired,
+  upvotePost: PropTypes.func.isRequired,
+  downvotePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
 });
 
-export default connect(mapStateToProps, { fetchPost })(Post);
+export default connect(mapStateToProps, {
+  fetchPost,
+  upvotePost,
+  downvotePost,
+})(Post);

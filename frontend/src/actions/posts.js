@@ -4,6 +4,8 @@ import {
   POST_ERROR,
   ADD_COMMENT,
   FETCH_POST,
+  UPVOTE_POST,
+  DOWNVOTE_POST,
 } from './types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -47,6 +49,52 @@ export const fetchPost = (id) => async (dispatch) => {
     dispatch({
       type: FETCH_POST,
       payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+    });
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'danger', '/feed'));
+      });
+    }
+  }
+};
+
+export const upvotePost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/api/posts/upvotes/${id}`
+    );
+
+    dispatch({
+      type: UPVOTE_POST,
+      payload: { id, post: res.data },
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+    });
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'danger', '/feed'));
+      });
+    }
+  }
+};
+
+export const downvotePost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/api/posts/downvotes/${id}`
+    );
+
+    dispatch({
+      type: DOWNVOTE_POST,
+      payload: { id, post: res.data },
     });
   } catch (err) {
     dispatch({
