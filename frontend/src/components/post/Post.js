@@ -7,13 +7,15 @@ import { FaComment, FaFlag, FaCopy } from 'react-icons/fa';
 import Comments from './Comments';
 import '../../css/feed.css';
 
-const Post = ({ post, match, fetchPost }) => {
+const Post = ({ posts: { post, loading }, match, fetchPost }) => {
   useEffect(() => {
     fetchPost(match.params.id);
   }, [match.params.id, fetchPost]);
   const [isOptionVisible, setIsOptionVisible] = useState(false);
 
-  return (
+  return loading || post === null ? (
+    <h1>Loading...</h1>
+  ) : (
     <div id="post-page">
       <div className="post bg-graydark">
         <div className="post-head">
@@ -81,7 +83,7 @@ Post.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  post: state.posts.post,
+  posts: state.posts,
 });
 
 export default connect(mapStateToProps, { fetchPost })(Post);

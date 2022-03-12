@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { setAlert } from '../../actions/alert';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPosts } from '../../actions/posts';
 import FeedPost from './FeedPost';
 
-const Posts = ({ setAlert, fetchPosts, posts }) => {
+const Posts = ({ fetchPosts, posts: { posts, loading } }) => {
   useEffect(() => {
     fetchPosts();
-  }, [posts, fetchPosts]);
-  return (
+  }, [fetchPosts]);
+
+  return loading ? (
+    <h1>Loading...</h1>
+  ) : (
     <div id="posts">
       {posts.map((post) => (
         <FeedPost key={post.id} post={post} />
@@ -19,13 +21,12 @@ const Posts = ({ setAlert, fetchPosts, posts }) => {
 };
 
 Posts.propTypes = {
-  setAlert: PropTypes.func.isRequired,
   fetchPosts: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired,
+  posts: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  posts: state.posts.posts,
+  posts: state.posts,
 });
 
-export default connect(mapStateToProps, { setAlert, fetchPosts })(Posts);
+export default connect(mapStateToProps, { fetchPosts })(Posts);

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { login } from "../../actions/auth";
-import { SocialIcon } from "react-social-icons";
-import PropTypes from "prop-types";
-import { FaUser, FaLock } from "react-icons/fa";
-import loginImage from "../../img/login_Image.svg";
-import "../../css/auth.css";
-import { Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
+import { SocialIcon } from 'react-social-icons';
+import PropTypes from 'prop-types';
+import { FaUser, FaLock } from 'react-icons/fa';
+import loginImage from '../../img/login_Image.svg';
+import '../../css/auth.css';
+import { Redirect } from 'react-router-dom';
 
 const Login = ({ isAuthenticated, login }) => {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const { username, password } = formData;
@@ -96,25 +96,6 @@ const Login = ({ isAuthenticated, login }) => {
                 />
               </div>
             </form>
-            <div className="social-login">
-              <span className="social-label">Or login with</span>
-              <ul className="socials">
-                <li>
-                  <a href="https://google.com">
-                    <i className="display-flex-center">
-                      <SocialIcon url="https://google.com" />
-                    </i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://facebook.com">
-                    <i className="display-flex-center">
-                      <SocialIcon url="https://facebook.com" />
-                    </i>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
