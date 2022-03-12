@@ -4,17 +4,23 @@
   "description": "Nameless Social Media Platform for anonymous posting and texting increasing inter-college interaction",
   "main": "server.js",
   "dependencies": {
+    "@tensorflow/tfjs": "^3.14.0",
+    "@tensorflow/tfjs-node": "^3.14.0",
     "bcryptjs": "^2.4.3",
     "canvas": "^2.9.0",
     "config": "^3.3.6",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
+    "fs": "^0.0.1-security",
     "joi": "^17.6.0",
+    "jpeg-js": "^0.4.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.4",
     "multer": "^1.4.4",
-    "nodemailer": "^6.7.2"
+    "node-fetch": "2.0",
+    "nodemailer": "^6.7.2",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",

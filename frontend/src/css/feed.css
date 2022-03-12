@@ -428,9 +428,9 @@ input.nsfw-checkbox {
 }
 
 .post {
-  margin-left: 0;
+  margin-left: -2rem;
   width: 45vw;
-  margin-top: -3rem;
+  margin-top: 0rem;
 }
 @media screen and (max-width: 500px) {
   .feed-post,
@@ -453,10 +453,11 @@ input.nsfw-checkbox {
 
 .comment-box {
   position: fixed;
-  width: 35vw;
+  width: 28vw;
   top: 13vh;
   right: 5vw;
   max-height: 80vh;
+  min-height: 80vh;
   overflow-y: scroll;
   background-color: var(--graylight-color);
   border-radius: 5px;
@@ -513,9 +514,9 @@ input.nsfw-checkbox {
 
 .add-comment {
   position: fixed;
-  right: 4.25vw;
-  bottom: 5.4vh;
-  width: 35vw;
+  right: 4.5vw;
+  bottom: 6.1vh;
+  width: 28vw;
   height: 10vh;
   margin: 10px;
   margin-right: 10px;
@@ -527,8 +528,8 @@ input.nsfw-checkbox {
 }
 
 .comment-input {
-  width: 30vw;
-  margin-top: 5px;
+  width: 24vw;
+  margin-top: 15px;
   border-radius: 8px;
   border: 0;
   padding: 2px 6px;

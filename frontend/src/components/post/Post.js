@@ -60,7 +60,7 @@ const Post = ({ posts: { post, loading }, match, fetchPost }) => {
             <i>
               <GiThumbUp />
             </i>
-            <p className="vote-count">{String(post.upvotes.length)}</p>
+            <p className="vote-count">{String(post.upvotes.length - post.downvotes.length)}</p>
             <i>
               <GiThumbDown />
             </i>

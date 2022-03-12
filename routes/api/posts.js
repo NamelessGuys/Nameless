@@ -8,6 +8,7 @@ const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
 const model = require('../../NSFW_Model/nsfw_model.js');
+const symbl  = require('../../NSFW_Model/symbl.js');
 
 // Multer Configurations
 
@@ -79,7 +80,9 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
       newPostObj = { ...newPostObj, image: req.file.filename };
     }
     const newPost = new Post(newPostObj);
-
+    const topic = await symbl(req.body.text);
+    if(req.file)
+    {
     const nsfw = await model(req.file); 
     if(nsfw)
     {
@@ -91,7 +94,8 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     {
       console.log('Not');
     }
-
+  }
+    console.log(topic);
     const post = await newPost.save();
 
     tags.forEach(async (tag) => {
