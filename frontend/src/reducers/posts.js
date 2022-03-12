@@ -5,7 +5,7 @@ import {
   ADD_COMMENT,
   POST_ERROR,
   SET_CURRENT_POST,
-} from "../actions/types";
+} from '../actions/types';
 
 const initialState = {
   posts: [],
@@ -18,8 +18,8 @@ export default function (state = initialState, action) {
   switch (type) {
     case FETCH_POSTS:
       return { ...state, posts: payload, loading: false };
-    case ADD_POST:
-      return { ...state, loading: false, posts: [payload, ...state.posts] };
+    // case ADD_POST:
+    //   return { ...state, loading: false, posts: [payload, ...state.posts] };
     case POSTS_ERROR:
       return { ...state, loading: false, posts: [], post: null };
 

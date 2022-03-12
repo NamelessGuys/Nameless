@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const Settings = require('../../models/Settings');
-const User = require('../../models/User');
+const { User } = require('../../models/User');
 
 // @route     GET api/settings/me
 // @desc      Get current user settings
