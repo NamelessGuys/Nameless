@@ -80,10 +80,12 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     }
     const newPost = new Post(newPostObj);
 
-    const nsfw = await model(req.file);
+    const nsfw = await model(req.file); 
     if(nsfw)
     {
-      return res.status(400).json({msg:'NSFW!!!'})
+      console.log('yes');
+      return res.status(400).json({msg:'NSFW!!!'});
+      
     }
     else
     {

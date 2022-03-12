@@ -61,7 +61,6 @@ else{
 
 async function testImage(filebuffer)
 {
-console.log('Hi');
 let model;
 try{
 model = await tf.loadGraphModel('file://NSFW_Model/models/webModel/model.json');
