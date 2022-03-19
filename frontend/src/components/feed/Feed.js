@@ -9,7 +9,7 @@ const Feed = () => {
 
   return (
     <Fragment>
-      {isModalVisible && <AddPostModal />}
+      {isModalVisible && <AddPostModal setIsModalVisible={setIsModalVisible} />}
       <div id='add-post-btn'>
         <div className='add-btn' onClick={() => setIsModalVisible(true)}>
           +

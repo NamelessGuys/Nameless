@@ -152,11 +152,6 @@ input.nsfw-checkbox {
   margin-right: 5px;
 }
 
-.nsfw-check label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 @media screen and (max-width: 500px) {
   #add-post {
     height: 90vh;

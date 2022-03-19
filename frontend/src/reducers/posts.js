@@ -4,6 +4,8 @@ import {
   FETCH_POST,
   ADD_COMMENT,
   POST_ERROR,
+  UPVOTE_POST,
+  DOWNVOTE_POST,
 } from '../actions/types';
 
 const initialState = {
@@ -28,6 +30,9 @@ export default function (state = initialState, action) {
       return { ...state, loading: false, post: [payload, ...state.post] };
     case POST_ERROR:
       return { ...state, loading: false, post: null };
+    case UPVOTE_POST:
+    case DOWNVOTE_POST:
+      return { ...state, loading: false, post: payload };
     default:
       return state;
   }

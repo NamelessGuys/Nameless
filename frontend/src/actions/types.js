@@ -18,3 +18,5 @@ export const SET_CURRENT_POST = 'SET_CURRENT_POST';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const POST_ERROR = 'POST_ERROR';
 export const FETCH_POST = 'FETCH_POST';
+export const UPVOTE_POST = 'UPVOTE_POST';
+export const DOWNVOTE_POST = 'DOWNVOTE_POST';

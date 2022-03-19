@@ -73,6 +73,10 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  isAnouncement: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model('post', PostSchema);

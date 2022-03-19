@@ -7,8 +7,8 @@ const { User } = require('../../models/User');
 const Post = require('../../models/Post');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
-const model = require('../../NSFW_Model/nsfw_model.js');
-const symbl  = require('../../NSFW_Model/symbl.js');
+const model = require('../../Models/nsfw_model.js');
+const symbl  = require('../../Models/symbl.js');
 
 // Multer Configurations
 
@@ -62,6 +62,12 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
       tags = [];
     }
 
+    if(tags.length === 0) {
+      const topic = await symbl(req.body.text);
+      console.log(topic);
+      tags = [topic.topics[0].text];
+    }
+
     const tagSet = new Set([...tags]);
     tags = Array.from(tagSet);
     if (tags.length > 5) {
@@ -80,7 +86,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
       newPostObj = { ...newPostObj, image: req.file.filename };
     }
     const newPost = new Post(newPostObj);
-    const topic = await symbl(req.body.text);
+    
     if(req.file)
     {
     const nsfw = await model(req.file); 
@@ -95,7 +101,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
       console.log('Not');
     }
   }
-    console.log(topic);
+   
     const post = await newPost.save();
 
     tags.forEach(async (tag) => {
