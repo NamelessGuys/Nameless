@@ -60,13 +60,13 @@ const FeedPost = ({ post }) => {
           <i>
             <GiThumbUp />
           </i>
-          <p className="vote-count">69</p>
+          <p className="vote-count">{post.upvotes.length - post.downvotes.length}</p>
           <i>
             <GiThumbDown />
           </i>
         </div>
         <div className="post-comment">
-          <p className="comment-count">69</p>
+          <p className="comment-count">{post.comments.length}</p>
           <Link to="/post">
             <i>
               <FaComment />

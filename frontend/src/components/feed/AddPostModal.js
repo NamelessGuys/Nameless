@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../../css/feed.css';
 import { FiUpload } from 'react-icons/fi';
 
-const AddPostModal = () => {
+const AddPostModal = ({setIsModalVisible}) => {
   const [formData, setFormData] = useState({
     title: '',
     text: '',
@@ -57,7 +57,7 @@ const AddPostModal = () => {
     <div id="add-post">
       <div className="modal-header">
         <h2 className="large">Upload New Post</h2>
-        <button className="btn btn-danger">X</button>
+        <button className="btn btn-danger" onClick={() => setIsModalVisible(false)}>X</button>
       </div>
       <div className="line"></div>
       <div className="modal-body">
