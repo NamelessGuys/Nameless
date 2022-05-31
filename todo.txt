@@ -1,9 +1,9 @@
 1. comment box ka UI remake (Pushp)
 2. Add post ka UI thik krna hai (image dikhani hai upload karne pe choti si ya fir at least name of image) (Hitesh)
-3. error aane pe error aa rha hai (Gaurav)
+3. error aane pe error aa rha hai (Hitesh)
 4. settings ki redux me loading ke order me kuch dikkat hai (Gaurav)
 5. add comment ka action (Pushp)
 6. profile ka pura redux
-7. filters ka pura redux
-8. images cloudinary pe sync karni hai (Hitesh)
+7. filters ka pura redux (Gaurav)
+8. images cloudinary pe sync karni hai and feed posts me dikhani hai
 9. Deploy karna hai
