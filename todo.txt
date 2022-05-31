@@ -1,9 +1,10 @@
-1. comment box ka UI remake (Pushp)
-2. Add post ka UI thik krna hai (image dikhani hai upload karne pe choti si ya fir at least name of image) (Hitesh)
-3. error aane pe error aa rha hai (Hitesh)
+1. comment box ka UI remake (Pushp) [abhi jo hai vo fixed hai, fix na kare to overflow kr rhe hai comments out of box]
+2. Add post ka UI thik krna hai (Hitesh) [image dikhani hai upload karne pe choti si ya fir at least name of image]
+3. error aane pe error aa rha hai [backend me alag alag formats me error return kiya, shayad usme dikkat usse frontend me handle kse kiya hai]
 4. settings ki redux me loading ke order me kuch dikkat hai (Gaurav)
 5. add comment ka action (Pushp)
 6. profile ka pura redux
-7. filters ka pura redux (Gaurav)
-8. images cloudinary pe sync karni hai and feed posts me dikhani hai
-9. Deploy karna hai
+7. filters ka pura redux (Gaurav) [redux + top 5 tags]
+8. filters ka backend pura (Hitesh) [3 routes: filter by tags, filter by college, filter by nsfw]
+9. images cloudinary pe sync karni hai and feed posts me dikhani hai
+10. Deploy karna hai
