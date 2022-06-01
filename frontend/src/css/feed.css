@@ -228,7 +228,7 @@ input.nsfw-checkbox {
 /* Hamburger top and Bottom Lines */
 .hamburger > div:before,
 .hamburger > div:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
   top: -10px;
@@ -338,7 +338,7 @@ input.nsfw-checkbox {
 
 .post-img {
   height: 450px !important;
-  background: url('../img/service-2.PNG') no-repeat center center/cover;
+  background: url("../img/service-2.PNG") no-repeat center center/cover;
 }
 
 .post-footer {
@@ -447,36 +447,42 @@ input.nsfw-checkbox {
 /***************************/
 
 .comment-box {
-  position: fixed;
-  width: 28vw;
-  top: 13vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  width: 40vw;
+  top: 15vh;
   right: 5vw;
-  max-height: 80vh;
-  min-height: 80vh;
-  overflow-y: scroll;
+  height: 75vh;
+  overflow-y: hidden;
   background-color: var(--graylight-color);
   border-radius: 5px;
   padding: 0 0.5rem;
-  padding-bottom: 3rem;
+  overflow-x: hidden;
 }
 
-.comment-box::-webkit-scrollbar {
+.comments::-webkit-scrollbar {
   width: 5px;
 }
 
-.comment-box::-webkit-scrollbar-track {
+.comments::-webkit-scrollbar-track {
   background-color: var(--graylight-color);
+  border-radius: 5px;
 }
 
-.comment-box::-webkit-scrollbar-thumb {
+.comments::-webkit-scrollbar-thumb {
   background-color: var(--light-color);
   height: 10px;
 }
 
+.comments {
+  height: 90% !important;
+  overflow-y: scroll;
+}
 .single-comment {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  /* justify-content: space-between; */
+  /* align-items: stretch; */
   margin: 0.4rem 0;
   background-color: var(--graydark-color);
   width: 100%;
@@ -508,25 +514,21 @@ input.nsfw-checkbox {
 }
 
 .add-comment {
-  position: fixed;
-  right: 4.5vw;
-  bottom: 6.1vh;
-  width: 28vw;
-  height: 10vh;
-  margin: 10px;
-  margin-right: 10px;
-  padding: 5px;
-  background-color: var(--graydark-color);
-  z-index: 100;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  bottom: 5vh;
+  width: 39.5vw;
+  height: 10%;
+  z-index: 2;
+  margin-bottom: 6px;
+  background-color: var(--graylight-color);
 }
 
 .comment-input {
-  width: 24vw;
-  margin-top: 15px;
+  width: 86%;
+  margin-top: 10px;
   border-radius: 8px;
   border: 0;
+  resize: none;
+  height: 5vh;
   padding: 2px 6px;
 }
 
