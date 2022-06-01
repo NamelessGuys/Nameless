@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const Profile = require('../../models/Profile');
-const Tag = require('../../models/Tag');
-const { User } = require('../../models/User');
-const Post = require('../../models/Post');
-const { check, validationResult } = require('express-validator');
-const multer = require('multer');
+const auth = require("../../middleware/auth");
+const Profile = require("../../models/Profile");
+const Tag = require("../../models/Tag");
+const { User } = require("../../models/User");
+const Post = require("../../models/Post");
+const { check, validationResult } = require("express-validator");
+const multer = require("multer");
 // const model = require('../../ml_models/nsfw_model.js');
 // const symbl = require('../../ml_models/symbl.js');
 
@@ -15,23 +15,23 @@ const multer = require('multer');
 // const upload = multer({ dest: 'public/files' });
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public');
+    cb(null, "public");
   },
   filename: (req, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
+    const ext = file.mimetype.split("/")[1];
     cb(null, `files/admin-${file.fieldname}-${Date.now()}.${ext}`);
   },
 });
 
 const multerFilter = (req, file, cb) => {
   if (
-    file.mimetype.split('/')[1] === 'jpeg' ||
-    file.mimetype.split('/')[1] === 'png' ||
-    file.mimetype.split('/')[1] === 'jpg'
+    file.mimetype.split("/")[1] === "jpeg" ||
+    file.mimetype.split("/")[1] === "png" ||
+    file.mimetype.split("/")[1] === "jpg"
   ) {
     cb(null, true);
   } else {
-    cb(new Error('Not a image File!!'), false);
+    cb(new Error("Not a image File!!"), false);
   }
 };
 
@@ -43,22 +43,22 @@ const upload = multer({
 // @route     POST api/posts
 // @desc      Add new post
 // @access    Private
-router.post('/', auth, upload.single('image'), async (req, res) => {
+router.post("/", auth, upload.single("image"), async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
 
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id).select("-password");
 
-    let tags = req.body.tags.split(',');
+    let tags = req.body.tags.split(",");
     tags = tags.map((tag) => {
       return tag.trim().substr(1);
     });
 
-    tags = tags.filter((tag) => tag !== '');
-    if (tags.length === 1 && tags[0] === '') {
+    tags = tags.filter((tag) => tag !== "");
+    if (tags.length === 1 && tags[0] === "") {
       tags = [];
     }
 
@@ -71,7 +71,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     const tagSet = new Set([...tags]);
     tags = Array.from(tagSet);
     if (tags.length > 5) {
-      return res.status(404).json({ msg: 'Can not add more than 5 tags' });
+      return res.status(404).json({ msg: "Can not add more than 5 tags" });
     }
 
     let newPostObj = {
@@ -119,27 +119,27 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     return res.json(post);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     GET api/posts
 // @desc      Get all posts
 // @access    Private
-router.get('/', auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
     res.json(posts);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     GET api/posts/college/:college_name
 // @desc      Get all posts by college
 // @access    Private
-router.get('/college/:college_name', auth, async (req, res) => {
+router.get("/college/:college_name", auth, async (req, res) => {
   try {
     const posts = await Post.find({ college: req.params.college_name }).sort({
       date: -1,
@@ -147,52 +147,52 @@ router.get('/college/:college_name', auth, async (req, res) => {
     res.json(posts);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     GET api/posts/nsfw/:isNsfw
 // @desc      Get all posts by nsfw
 // @access    Private
-router.get('/nsfw/:isNsfw', auth, async (req, res) => {
+router.get("/nsfw/:isNsfw", auth, async (req, res) => {
   try {
     let posts;
-    if (req.params.isNsfw === true || req.params.isNsfw === 'true') {
-      posts = await Post.find({ nsfw: { $in: ['true', true] } });
+    if (req.params.isNsfw === true || req.params.isNsfw === "true") {
+      posts = await Post.find({ nsfw: { $in: ["true", true] } });
     } else {
-      posts = await Post.find({ nsfw: { $in: ['false', false] } });
+      posts = await Post.find({ nsfw: { $in: ["false", false] } });
     }
     res.json(posts);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     GET api/posts/:id
 // @desc      Get post by id
 // @access    Private
-router.get('/:id', auth, async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
     if (!post) {
-      return res.status(404).json({ msg: 'Post not found' });
+      return res.status(404).json({ msg: "Post not found" });
     }
     res.json(post);
   } catch (err) {
-    if (err.kind === 'ObjectId') {
-      return res.status(404).json({ msg: 'Post not found' });
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Post not found" });
     }
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     PUT api/posts/upvotes/:id
 // @desc      Upvote a post
 // @access    Private
-router.put('/upvotes/:id', auth, async (req, res) => {
+router.put("/upvotes/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -225,14 +225,14 @@ router.put('/upvotes/:id', auth, async (req, res) => {
     res.json(post);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 // @route     PUT api/posts/downvotes/:id
 // @desc      Downvote a post
 // @access    Private
-router.put('/downvotes/:id', auth, async (req, res) => {
+router.put("/downvotes/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -265,7 +265,7 @@ router.put('/downvotes/:id', auth, async (req, res) => {
     res.json(post);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -273,8 +273,8 @@ router.put('/downvotes/:id', auth, async (req, res) => {
 // @desc      Comment on a post
 // @access    Private
 router.post(
-  '/comment/:id',
-  [auth, [check('text', 'Text is required').not().isEmpty()]],
+  "/comment/:id",
+  [auth, [check("text", "Text is required").not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -282,11 +282,11 @@ router.post(
     }
 
     try {
-      const user = await User.findById(req.user.id).select('-password');
+      const user = await User.findById(req.user.id).select("-password");
       const post = await Post.findById(req.params.id);
-
+      let { comment } = req.body;
       const newComment = {
-        text: req.body.text,
+        text: comment,
         username: user.username,
         avatar: user.avatar,
         user: user.id,
@@ -298,7 +298,7 @@ router.post(
       res.json(post.comments);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      res.status(500).send("Server Error");
     }
   }
 );
@@ -306,7 +306,7 @@ router.post(
 // @route     PUT api/posts/report/:id
 // @desc      Report a post
 // @access    Private
-router.put('/report/:id', auth, async (req, res) => {
+router.put("/report/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -315,7 +315,7 @@ router.put('/report/:id', auth, async (req, res) => {
       post.report.filter((report) => report.user.toString() === req.user.id)
         .length > 0
     ) {
-      return res.status(400).json({ msg: 'Post already Reported' });
+      return res.status(400).json({ msg: "Post already Reported" });
     }
 
     post.report.unshift({ user: req.user.id });
@@ -324,7 +324,7 @@ router.put('/report/:id', auth, async (req, res) => {
     res.json(post.report);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 

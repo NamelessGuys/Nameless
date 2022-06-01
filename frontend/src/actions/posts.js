@@ -6,9 +6,9 @@ import {
   FETCH_POST,
   UPVOTE_POST,
   DOWNVOTE_POST,
-} from './types';
-import axios from 'axios';
-import { setAlert } from './alert';
+} from "./types";
+import axios from "axios";
+import { setAlert } from "./alert";
 
 // export const addPost = (postForm) => async (dispatch) => {
 //   try {
@@ -25,7 +25,7 @@ import { setAlert } from './alert';
 
 export const fetchPosts = () => async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5000/api/posts/');
+    const res = await axios.get("http://localhost:5000/api/posts/");
     dispatch({
       type: FETCH_POSTS,
       payload: res.data,
@@ -37,7 +37,7 @@ export const fetchPosts = () => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/feed'));
+        dispatch(setAlert(error.msg, "danger", "/feed"));
       });
     }
   }
@@ -57,7 +57,35 @@ export const fetchPost = (id) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/feed'));
+        dispatch(setAlert(error.msg, "danger", "/feed"));
+      });
+    }
+  }
+};
+export const addComment = (comment, id) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/api/posts/comment/${id}`,
+      { comment },
+      config
+    );
+
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data,
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, "danger", "/feed"));
       });
     }
   }
@@ -80,7 +108,7 @@ export const upvotePost = (id) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/feed'));
+        dispatch(setAlert(error.msg, "danger", "/feed"));
       });
     }
   }
@@ -103,7 +131,7 @@ export const downvotePost = (id) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/feed'));
+        dispatch(setAlert(error.msg, "danger", "/feed"));
       });
     }
   }
