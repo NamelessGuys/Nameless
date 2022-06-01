@@ -173,20 +173,18 @@ input.nsfw-checkbox {
 
 .feed-post,
 .post {
-  margin: 0.5rem 0;
   padding-top: 1rem;
   color: var(--white-color);
-  width: 60%;
-  margin-left: 3vw;
+  width: auto;
+  height: 80vh;
 }
 
 .post-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: 0 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .toggler {
@@ -266,11 +264,12 @@ input.nsfw-checkbox {
   background-color: var(--graylight-color);
   position: absolute;
   top: 17px;
-  left: -140px;
+  left: -150px;
   width: 170px;
   padding: 1rem;
-  border-radius: 15px;
+  border-radius: 5px;
   visibility: hidden;
+  color: white;
 }
 
 .post-actions.show {
@@ -297,6 +296,8 @@ input.nsfw-checkbox {
   background-color: var(--graylight-color) !important;
   color: var(--light-color) !important;
   box-shadow: none;
+  color: white !important;
+  font-weight: 100;
 }
 
 .post-action i {
@@ -332,13 +333,14 @@ input.nsfw-checkbox {
 }
 .college-name {
   background-color: var(--primary-color);
-  border-radius: 50px;
+  border-radius: 3px;
+  opacity: 1;
   padding: 3px 15px;
 }
 
 .post-img {
-  height: 450px !important;
-  background: url("../img/service-2.PNG") no-repeat center center/cover;
+  height: 370px !important;
+  background: url("../img/service-2.PNG") no-repeat center/contain;
 }
 
 .post-footer {
@@ -417,16 +419,25 @@ input.nsfw-checkbox {
 /********* Post ************/
 /***************************/
 #post-page {
+  background-color: var(--graylight-color);
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: -25px;
 }
 
 .post {
-  margin-left: -2rem;
   width: 45vw;
   margin-top: 0rem;
 }
+
+.post-head > h3 {
+  padding: 0px 0px 0px 10px;
+  color: white;
+  font-weight: 100;
+}
+
 @media screen and (max-width: 500px) {
   .feed-post,
   .post {
@@ -449,7 +460,6 @@ input.nsfw-checkbox {
 .comment-box {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   width: 40vw;
   top: 15vh;
   right: 5vw;
@@ -520,6 +530,7 @@ input.nsfw-checkbox {
   z-index: 2;
   margin-bottom: 6px;
   background-color: var(--graylight-color);
+  vertical-align: middle;
 }
 
 .comment-input {
@@ -528,8 +539,10 @@ input.nsfw-checkbox {
   border-radius: 8px;
   border: 0;
   resize: none;
-  height: 5vh;
+  height: 7vh;
   padding: 2px 6px;
+  overflow-y: hidden;
+  vertical-align: sub;
 }
 
 .comment-input:focus {
