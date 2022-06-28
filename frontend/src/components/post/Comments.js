@@ -32,9 +32,9 @@ const Comments = ({ post, auth: { user }, addComment }) => {
           <textarea
             className='comment-input'
             placeholder='Write Something...'
-            value={comment}
             name='comment'
-            onChange={(e) => onChangeHandler(e)}></textarea>
+            value={comment}
+            onInput={(e) => onChangeHandler(e)}></textarea>
           <button className='send-btn' onClick={(e) => onSubmitHandeler(e)}>
             <IoMdSend />
           </button>

@@ -68,26 +68,25 @@ export const addComment = (comment, id) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   };
-
   try {
-    const res = await axios.put(
+    const res = await axios.post(
       `http://localhost:5000/api/posts/comment/${id}`,
       { comment },
       config
     );
-
+    console.log(res);
     dispatch({
       type: ADD_COMMENT,
       payload: res.data,
     });
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => {
-        dispatch(setAlert(error.msg, "danger", "/feed"));
-      });
-    }
+    // const errors = err.response.data.errors;
+    console.log(err);
+    // if (errors) {
+    // errors.forEach((error) => {
+    // dispatch(setAlert(error.msg, "danger", "/feed"));
+    // });
+    // }
   }
 };
 
