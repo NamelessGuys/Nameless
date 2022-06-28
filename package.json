@@ -8,8 +8,8 @@
     "@tensorflow/tfjs-node": "^3.14.0",
     "bcryptjs": "^2.4.3",
     "canvas": "^2.9.0",
-    "config": "^3.3.6",
     "crypto": "^1.0.1",
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "fs": "^0.0.1-security",
@@ -30,7 +30,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
