@@ -25,7 +25,11 @@ import { setAlert } from "./alert";
 
 export const fetchPosts = () => async (dispatch) => {
   try {
-    const res = await axios.get("http://localhost:5000/api/posts/");
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/posts/`
+        : `http://localhost:5000/api/posts/`;
+    const res = await axios.get(url);
     dispatch({
       type: FETCH_POSTS,
       payload: res.data,
@@ -45,7 +49,11 @@ export const fetchPosts = () => async (dispatch) => {
 
 export const fetchPost = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/posts/${id}`
+        : `http://localhost:5000/api/posts/${id}`;
+    const res = await axios.get(url);
     dispatch({
       type: FETCH_POST,
       payload: res.data,
@@ -69,11 +77,11 @@ export const addComment = (comment, id) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.post(
-      `http://localhost:5000/api/posts/comment/${id}`,
-      { comment },
-      config
-    );
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/posts/comment/${id}`
+        : `http://localhost:5000/api/posts/comment/${id}`;
+    const res = await axios.post(url, { comment }, config);
     console.log(res);
     dispatch({
       type: ADD_COMMENT,
@@ -92,9 +100,11 @@ export const addComment = (comment, id) => async (dispatch) => {
 
 export const upvotePost = (id) => async (dispatch) => {
   try {
-    const res = await axios.put(
-      `http://localhost:5000/api/posts/upvotes/${id}`
-    );
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/posts/upvotes/${id}`
+        : `http://localhost:5000/api/posts/upvotes/${id}`;
+    const res = await axios.put(url);
 
     dispatch({
       type: UPVOTE_POST,
@@ -115,9 +125,11 @@ export const upvotePost = (id) => async (dispatch) => {
 
 export const downvotePost = (id) => async (dispatch) => {
   try {
-    const res = await axios.put(
-      `http://localhost:5000/api/posts/downvotes/${id}`
-    );
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/posts/downvotes/${id}`
+        : `http://localhost:5000/api/posts/downvotes/${id}`;
+    const res = await axios.put(url);
 
     dispatch({
       type: DOWNVOTE_POST,

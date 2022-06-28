@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { setAlert } from './alert';
+import axios from "axios";
+import { setAlert } from "./alert";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -9,17 +9,21 @@ import {
   LOGIN_FAIL,
   CHANGE_PASSWORD,
   LOGOUT,
-} from './types';
-import setAuthToken from '../utils/setAuthToken';
+} from "./types";
+import setAuthToken from "../utils/setAuthToken";
 
 // Load User
 export const loadUser = () => async (dispatch) => {
-  if (localStorage.getItem('token')) {
-    setAuthToken(localStorage.getItem('token'));
+  if (localStorage.getItem("token")) {
+    setAuthToken(localStorage.getItem("token"));
   }
 
   try {
-    const res = await axios.get('http://localhost:5000/api/auth');
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/auth`
+        : "http://localhost:5000/api/auth";
+    const res = await axios.get(url);
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -37,13 +41,17 @@ export const register =
   async (dispatch) => {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     };
 
     try {
+      const url =
+        process.env.NODE_ENV === "production"
+          ? `https://nameless-web.herokuapp.com/api/users`
+          : "http://localhost:5000/api/users";
       const res = await axios.post(
-        'http://localhost:5000/api/users',
+        url,
         { username, email, password, college },
         config
       );
@@ -52,12 +60,12 @@ export const register =
         payload: res.data,
       });
       dispatch(loadUser());
-      dispatch(setAlert('Successfully registered', 'success', '/feed'));
+      dispatch(setAlert("Successfully registered", "success", "/feed"));
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) => {
-          dispatch(setAlert(error.msg, 'danger', '/register'));
+          dispatch(setAlert(error.msg, "danger", "/register"));
         });
       }
 
@@ -73,16 +81,16 @@ export const login =
   async (dispatch) => {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     };
 
     try {
-      const res = await axios.post(
-        'http://localhost:5000/api/auth',
-        { username, password },
-        config
-      );
+      const url =
+        process.env.NODE_ENV === "production"
+          ? `https://nameless-web.herokuapp.com/api/auth`
+          : "http://localhost:5000/api/auth";
+      const res = await axios.post(url, { username, password }, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -92,7 +100,7 @@ export const login =
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) =>
-          dispatch(setAlert(error.msg, 'danger', '/login'))
+          dispatch(setAlert(error.msg, "danger", "/login"))
         );
       }
 
@@ -111,27 +119,27 @@ export const logout = () => (dispatch) => {
 export const changePassword = (password, userID) => async (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
 
   try {
-    const res = await axios.put(
-      `http://localhost:5000/api/users/${userID}`,
-      { password },
-      config
-    );
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://nameless-web.herokuapp.com/api/users/${userID}`
+        : `http://localhost:5000/api/users/${userID}`;
+    const res = await axios.put(url, { password }, config);
     dispatch({
       type: CHANGE_PASSWORD,
       payload: res.data,
     });
     dispatch(loadUser());
-    dispatch(setAlert('Successfully changed password', 'success', '/settings'));
+    dispatch(setAlert("Successfully changed password", "success", "/settings"));
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'danger', '/settings'));
+        dispatch(setAlert(error.msg, "danger", "/settings"));
       });
     }
   }
