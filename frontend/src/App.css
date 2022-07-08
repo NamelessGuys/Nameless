@@ -295,7 +295,7 @@ button {
   width: 100%;
   padding: 0.5rem 4rem;
   position: fixed;
-  z-index: 10000;
+  z-index: 10000000000000000000000000;
   opacity: 0.9;
   top: 0;
   left: 0;

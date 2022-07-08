@@ -41,7 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                   src="https://randomuser.me/api/portraits/men/1.jpg"
                   alt="Profile Pic"
                 />
-                <h3 className="nav-username">Lorem Ipsum</h3>
+                <h3 className="nav-username">Ayush Bansal</h3>
               </div>
             </button>
             <div className="dropdown-content">

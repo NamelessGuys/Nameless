@@ -62,7 +62,9 @@ export const register =
       dispatch(loadUser());
       dispatch(setAlert("Successfully registered", "success", "/feed"));
     } catch (err) {
-      const errors = err.response.data.errors;
+      // const errors = err.response.data.errors;
+      const errors = err?.response?.data?.errors;
+
       if (errors) {
         errors.forEach((error) => {
           dispatch(setAlert(error.msg, "danger", "/register"));
@@ -97,7 +99,9 @@ export const login =
       });
       dispatch(loadUser());
     } catch (err) {
-      const errors = err.response.data.errors;
+      // const errors = err.response.data.errors;
+      const errors = err?.response?.data?.errors;
+
       if (errors) {
         errors.forEach((error) =>
           dispatch(setAlert(error.msg, "danger", "/login"))

@@ -57,7 +57,7 @@
   box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   #add-post-btn {
     margin-top: -50px;
   }
@@ -152,7 +152,7 @@ input.nsfw-checkbox {
   margin-right: 5px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   #add-post {
     height: 90vh;
     width: 90vw;
@@ -170,23 +170,28 @@ input.nsfw-checkbox {
 /***************************/
 /******** FeedPost *********/
 /***************************/
+.feed-div {
+  margin-top: -40px;
+}
 
 .feed-post,
 .post {
   padding-top: 1rem;
   color: var(--white-color);
-  width: auto;
-  height: 80vh;
+  width: 40vw;
+  height: auto;
+  margin-bottom: 50px;
 }
 
 .post-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  margin-bottom: 0;
 }
-
+.feed-post {
+  border-radius: 10px;
+  padding: 20px;
+}
 .toggler {
   position: absolute;
   top: -15px;
@@ -308,16 +313,11 @@ input.nsfw-checkbox {
   color: var(--white-color) !important;
 }
 
-.post-text {
-  margin-top: 1rem;
-}
-
 .post-tags {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 2rem;
   margin-bottom: 0.5rem;
 }
 
@@ -346,10 +346,9 @@ input.nsfw-checkbox {
 .post-footer {
   display: flex;
   padding-top: 0.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
   justify-content: space-between;
   align-items: center;
+  height: 35px;
   width: 100%;
   font-size: 1.7rem;
   z-index: 1000;
@@ -433,12 +432,11 @@ input.nsfw-checkbox {
 }
 
 .post-head > h3 {
-  padding: 0px 0px 0px 10px;
   color: white;
   font-weight: 100;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .feed-post,
   .post {
     width: auto;
